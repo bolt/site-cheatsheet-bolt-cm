@@ -1,4 +1,4 @@
 Cheatsheet
 ==========
 
-A bolt cheetsheet
+A bolt cheatsheet
