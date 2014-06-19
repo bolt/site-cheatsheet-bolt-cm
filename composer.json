@@ -7,7 +7,7 @@
     "require": {
         "twig/twig": ">=1.8,<2.0-dev",
         "symfony/yaml": "~2.4",
-        "erusev/parsedown": "1.*",
+        "erusev/parsedown": "1.*"
     },
     "minimum-stability": "beta",
     "config": {
