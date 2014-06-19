@@ -1,12 +1,13 @@
 {
-    "name": "bolt/bolt-docs",
-    "description": "Documentation for Bolt",
+    "name": "bolt/cheatsheet",
+    "description": "A cheatsheet for Bolt",
     "homepage": "http://docs.bolt.cm",
-    "keywords": ["Bolt", "Docs", "Documentation", "CMS", "Silex", "PHP", "Symfony"],
+    "keywords": ["Bolt", "Cheatsheet", "Docs", "Documentation", "CMS", "Silex", "PHP", "Symfony"],
     "license": "MIT",
     "require": {
         "twig/twig": ">=1.8,<2.0-dev",
-        "symfony/yaml": "~2.4"
+        "symfony/yaml": "~2.4",
+        "erusev/parsedown": "1.*",
     },
     "minimum-stability": "beta",
     "config": {
