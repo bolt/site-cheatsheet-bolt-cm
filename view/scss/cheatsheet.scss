@@ -1,8 +1,66 @@
+$base-font-size: 100%;
 
+
+$row-width: 1200px;
+$column-gutter: 16px;
+$total-columns: 6;
+
+
+$table-bg: #FFF;
+$table-border-color: #FFF;
+$table-even-row-bg: #EEE;
+$table-row-padding: 0px;
+$table-row-font-size: 12px;
+$table-line-height: 1.4;
 
 @import "foundation";
 
+.panel {
+    border: 1px solid #ccc;
+    padding: 4px;
 
-h1 {
-    font-size: 100px;
+    h2 {
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    p {
+        font-size: 13px;
+        line-height: 1.4;
+        margin: 8px 0;
+    }
+
+    code {
+        padding: 0;
+    }
+
+    table {
+        border: 0;
+        margin: 0;
+    }
+
+    td { 
+        vertical-align: top;
+        p {
+            font-size: $table-row-font-size;
+            line-height: $table-line-height;
+            margin: 0;
+        }        
+    }
+
+    td:first-child {
+        white-space: nowrap;
+    }
+
+    tr {
+        &.even,
+        &.alt,
+        &:nth-of-type(even) { 
+            td {
+                background: $table-even-row-bg; 
+                border-bottom: 1px solid #CCC;
+            }
+        }
+    }
+
 }
