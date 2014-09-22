@@ -1,0 +1,21 @@
+
+
+themestructure:
+  title: Sample theme structure
+  prefix: "This is the common structure of a bolt theme. The files are located in `themes/`. Define the theme to be used with the `theme:` setting in the global `config.yml`."
+  table: 
+    - [ Filename, Function, Example link ]
+    - [ index.twig, Homepage of the site, / ]
+    - [ listing.twig, listing page for overview of pages, entries or listings per category or searchresults, "/entries /tags/movies /search?search=lorem" ]
+    - [ entry.twig, single page for a record of the \'entries\' contenttype    ]
+    - [ record.twig, fallback single template for any contenttype that doesn\'t have its own single record template    ]
+    - [ _aside.twig, template for the sidebar     ]
+    - [ _footer.twig, template for the common footer of all pages  ]
+    - [ _header.twig, template for the common header of all pages  ]
+    - [ _recordfooter.twig, meta-information for a single page or record ]
+    - [  _sub_menu.twig  template for the markup of the menu. See also `menu.yml` for the contents   - [  _sub_searchbox.twig template for the markup for the search box. ]
+    - [ images/, graphical assets used in the theme   ]
+    - [ javascripts/, any used javascripts should go in here   ]
+    - [ css/, contains the (compiled) CSS for the theme    ]
+    - [ scss/, optional folder for Sass source files, to be compiled into CSS.  ]
+    - [ config.yml, optional config file with settings specific to the theme.    ]
