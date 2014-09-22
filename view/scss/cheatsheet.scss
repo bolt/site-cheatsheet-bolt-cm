@@ -13,16 +13,45 @@ $table-row-padding: 0px;
 $table-row-font-size: 12px;
 $table-line-height: 1.4;
 
+
+// Bolt colors: 
+$bolt-blue: #005394;
+$bolt-light-blue: #39556A;
+$bolt-orange: #DC6A23;
+
 @import "foundation";
+
+a {
+    color: $bolt-blue;
+}
 
 .panel {
     border: 1px solid #ccc;
-    padding: 4px;
+    padding: 0 4px 4px;
+
+    header {
+        background-color: $bolt-light-blue;
+        margin: 0px -4px 0;
+        padding: 2px 2px 2px;
+    }
 
     h2 {
+        text-align: center;
         font-size: 16px;
         font-weight: bold;
+        margin: 0;
+        color: #FFF;
+
+        code {
+            border: 0;
+            color: #DDD;
+            padding: 1px 4px;
+            background-color: lighten($bolt-light-blue, 12);
+        }        
+
     }
+
+
 
     p {
         font-size: 13px;

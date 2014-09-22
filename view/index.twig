@@ -44,7 +44,10 @@
   {% for block in cheatsheet %}
     <div class="small-6 large-{{block.width|default('4')}} columns">
       <div class="panel">
-        {{ ('## ' ~ block.title)|markdown }} {# Small trick to get correct <h2> tags from markdown #} 
+        <header>
+          {{ ('## ' ~ block.title)|markdown }} {# Small trick to get correct <h2> tags from markdown #} 
+        </header>
+        
         {% if block.prefix %}{{ block.prefix|markdown }}{% endif %}
 
         {% if block.table %}
