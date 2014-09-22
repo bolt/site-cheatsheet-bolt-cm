@@ -1,16 +1,15 @@
 {
-  "name": "base-2014-dev",
-  "version": "1.0.1",
-  "homepage": "https://github.com/bolt/base-2014",
+  "name": "bolt-cheatsheet-dev",
+  "version": "1.0.0",
+  "homepage": "https://cheatsheet.bolt.cm",
   "authors": [
     "bobdenotter <bob@twokings.nl>"
   ],
-  "description": "Base 2014 theme for Bolt",
-  "main": "index.twig",
+  "description": "Bower stuffs for the Bolt cheatsheet",
+  "main": "/",
   "keywords": [
-    "twig",
-    "theme",
-    "bolt"
+    "bolt",
+    "cheatsheet",
   ],
   "license": "MIT",
   "ignore": [

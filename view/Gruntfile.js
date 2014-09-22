@@ -4,14 +4,14 @@ module.exports = function(grunt) {
 
     sass: {
       options: {
-        includePaths: ['bower_components/foundation/scss']
+        loadPath: ['bower_components/foundation/scss']
       },
       dist: {
         options: {
-          outputStyle: 'compressed'
+          style: 'compressed'
         },
         files: {
-          'css/foundation.css': 'scss/foundation.scss'
+          'css/cheatsheet.css': 'scss/cheatsheet.scss'
         }        
       }
     },
@@ -26,7 +26,7 @@ module.exports = function(grunt) {
     }
   });
 
-  grunt.loadNpmTasks('grunt-sass');
+  grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
   grunt.registerTask('build', ['sass']);
