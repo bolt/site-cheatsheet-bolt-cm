@@ -14,13 +14,22 @@ $twig = new Twig_Environment($loader, array(
 /*    'cache' => './cache', */
 ));
 
-
+// Add Dumper function to twig. 
 $dumper = new Twig_SimpleFunction(
     'dump', 
     function ($var) { return \Dumper::dump($var, DUMPER_CAPTURE); }, 
     array('is_safe' => array('html')
 ));
 $twig->addFunction($dumper);
+
+
+// Add markdown to twig. 
+$markdown = new Twig_SimpleFilter(
+    'markdown', 
+    function ($content) { return \ParsedownExtra::instance()->text($content); }, 
+    array('is_safe' => array('html')
+));
+$twig->addFilter($markdown);
 
 echo $twig->render('index.twig', array(
     'title' => "Bolt Cheatsheet",

@@ -40,9 +40,9 @@
 <div class="row">
   
   {% for block in cheatsheet %}
-    <div class="small-12 large-4 columns">
+    <div class="small-12 large-4 columns panel">
     <h2>{{ block.title }}</h2>
-    {% if block.prefix %}{{ block.prefix }}{% endif %}
+    {% if block.prefix %}{{ block.prefix|markdown }}{% endif %}
 
     {% if block.table %}
 
