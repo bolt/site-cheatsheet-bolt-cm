@@ -38,22 +38,35 @@ setcontent:
         - [ "where { tags: 'book || movie' }", "you can also use taxonomies in your `where`."]
         - [ "where { datepublish: '<today' }", "use shortcuts like 'now', 'today', 'tomorrow' for date selection."]
 
-
-
-setcontent2: 
-    title: "The `{% setcontent %}` tag"
+apppath: 
+    title: "The `paths` variable"
     width: 2
-    prefix: "The `{% setcontent %}` tag is one of the most important tags in Bolt, because it allows you to get content in any location to use however you need."
-    table:
-        - [ Parameter, Function ]
-        - [ variable name, The first parameter (before the '=') is always the variable that will contain the result set ]
-        - [ 'contenttype', The name of the contenttype to fetch records from ] 
-        - [ 'contenttype/latest/10', get the latest 10 records from `contenttype` ]        
-        - [ 'contenttype/slug', get the record from `contenttype` with the slug `slug` ]        
-        - [ 'contenttype/123', get the record from `contenttype` with the id `123` ]   
-        - [ "where { username: 'bob' }", "use `where` to define what needs to be fetched."]                             
-        - [ "where { title: '%ipsum%' }", "use `%` in your `where` statement to use 'LIKE' matching."]
-        - [ "where { tags: 'book || movie' }", "you can also use taxonomies in your `where`."]
-        - [ "where { datepublish: '<today' }", "use shortcuts like 'now', 'today', 'tomorrow' for date selection."]
-
-
+    prefix: "To see the current paths use `{{ dump(paths) }}` in a template. Use a specific path like this: `{{ paths.theme }}`. In PHP these are available as `$this->app['paths']`."
+    table: 
+        - ["app", "/app/"]
+        - ["async", "/async/"]
+        - ["bolt", "/admin/"]
+        - ["upload", "/upload/"]
+        - ["files", "/files/"]
+        - ["extensions", "/extensions/"]
+        - ["root", "/"]
+        - ["currenturl", "http://example.com/entry/lorum-ipsum"]
+        - ["current", "/entry/lorum-ipsum"]
+        - ["hostname", "example.com"]
+        - ["hosturl", "http://example.com"]
+        - ["canonical", "example.com"]
+        - ["canonicalurl", "http://example.com/entry/lorum-ipsum"]
+        - ["protocol", "http"]
+        - ["rooturl", "http://example.com/"]
+        - ["theme", "/theme/base-2014/"]
+        - ["apppath", "/[on/server]/app"]
+        - ["cachepath", "/[on/server]/app/cache"]
+        - ["configpath", "/[on/server]/app/config"]
+        - ["databasepath", "/[on/server]/app/database"]
+        - ["extensionsconfigpath", "/[on/server]/app/config/extensions"]
+        - ["extensionspath", "/[on/server]/extensions"]
+        - ["filespath", "/[on/server]/files"]
+        - ["rootpath", "/[on/server]/bolt"]
+        - ["themebasepath", "/[on/server]/theme"]
+        - ["themepath", "/[on/server]/theme/base-2014"]
+        - ["webpath", "/[on/server]/bolt"]
