@@ -10,7 +10,6 @@
 
 	<link rel="stylesheet" href="/view/css/cheatsheet.css">
 
-    <script src="/view/js/vendor/modernizr.js"></script>
     <script src="/view/js/jquery.js"></script>
 
 	<!--[if lt IE 9]>
@@ -35,46 +34,50 @@
 </head>
 <body>
 
-<h1>Bolt cheatsheet</h1>
 
 <div class="row">
   
+  <div class="small-6 large-6 columns">
+    <h1>Bolt cheatsheet</h1>
+  </div>
+
   {% for block in cheatsheet %}
-    <div class="small-12 large-4 columns panel">
-    <h2>{{ block.title }}</h2>
-    {% if block.prefix %}{{ block.prefix|markdown }}{% endif %}
+    <div class="small-6 large-{{block.width|default('4')}} columns">
+      <div class="panel">
+        {{ ('## ' ~ block.title)|markdown }} {# Small trick to get correct <h2> tags from markdown #} 
+        {% if block.prefix %}{{ block.prefix|markdown }}{% endif %}
 
-    {% if block.table %}
+        {% if block.table %}
 
-      <table>
+          <table>
 
-      {% for row in block.table %}
-        <tr>
-        {% if loop.first %}
-          {% set cellcounter = row|length %}
-          {% set header = true %}
-          {% for cell in row %}
-            <th> {{ cell }} </th>
-          {% endfor %}
+          {% for row in block.table %}
+            <tr>
+            {% if loop.first %}
+              {% set cellcounter = row|length %}
+              {% set header = true %}
+              {% for cell in row %}
+                <th> {{ cell }} </th>
+              {% endfor %}
 
-        {% else %}
+            {% else %}
 
-          {% for cell in row %}
-            <td> {{ cell }} </td>
-            {% if loop.last and (loop.index < cellcounter) %}
-              <td>&nbsp;</td>
+              {% for cell in row %}
+                <td> {{ cell|markdown }} </td>
+                {% if loop.last and (loop.index < cellcounter) %}
+                  <td>&nbsp;</td>
+                {% endif %}
+              {% endfor %}
+
             {% endif %}
-          {% endfor %}
+
+            </tr>
+            {% endfor %}
+
+          </table>
 
         {% endif %}
-
-        </tr>
-        {% endfor %}
-
-      </table>
-
-    {% endif %}
-
+      </div>
     </div>
   {% endfor %}
 
