@@ -47,7 +47,7 @@
         <header>
           {{ ('## ' ~ block.title)|markdown }} {# Small trick to get correct <h2> tags from markdown #} 
         </header>
-        
+
         {% if block.prefix %}{{ block.prefix|markdown }}{% endif %}
 
         {% if block.table %}
@@ -80,6 +80,11 @@
           </table>
 
         {% endif %}
+
+        {% if block.more_text and block.more_link %}
+          <p class='readmore'>Read more: <a href='{{ block.more_link }}'>{{ block.more_text }}</a></p>
+        {% endif %}
+
       </div>
     </div>
   {% endfor %}

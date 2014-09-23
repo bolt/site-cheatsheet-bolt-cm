@@ -1,26 +1,28 @@
 
 
 themestructure:
-  title: Sample theme structure
-  width: 3
-  prefix: "This is the common structure of a bolt theme. The files are located in `themes/`. Define the theme to be used with the `theme:` setting in the global `config.yml`."
-  table: 
-    - [ Filename, Function, Example link ]
-    - [ index.twig, Homepage of the site, / ]
-    - [ listing.twig, "listing page for overview of pages, entries or listings per category or searchresults", "/entries /tags/movies /search?search=lorem" ]
-    - [ entry.twig, "single page for a record of the 'entries' contenttype" , "/entry/lorum-ipsum"   ]
-    - [ record.twig, "fallback single template for any contenttype that doesn't have its own single record template", "/showcase/dolor-sit"    ]
-    - [ _aside.twig, template for the sidebar ]
-    - [ _footer.twig, template for the common footer of all pages ]
-    - [ _header.twig, template for the common header of all pages ]
-    - [ _recordfooter.twig, meta-information for a single page or record ]
-    - [  _sub_menu.twig, template for the markup of the menu. See also `menu.yml` for the contents ]
-    - [  _sub_searchbox.twig, template for the markup for the search box. ]
-    - [ images/, graphical assets used in the theme ]
-    - [ javascripts/, any used javascripts should go in here ]
-    - [ css/, contains the (compiled) CSS for the theme ]
-    - [ scss/, "optional folder for Sass source files, to be compiled into CSS." ]
-    - [ config.yml, optional config file with settings specific to the theme. ]
+    title: Sample theme structure
+    width: 3
+    prefix: "This is the common structure of a bolt theme. The files are located in `themes/`. Define the theme to be used with the `theme:` setting in the global `config.yml`."
+    table: 
+        - [ Filename, Function, Example link ]
+        - [ index.twig, Homepage of the site, / ]
+        - [ listing.twig, "listing page for overview of pages, entries or listings per category or searchresults", "/entries /tags/movies /search?search=lorem" ]
+        - [ entry.twig, "single page for a record of the 'entries' contenttype" , "/entry/lorum-ipsum"   ]
+        - [ record.twig, "fallback single template for any contenttype that doesn't have its own single record template", "/showcase/dolor-sit"    ]
+        - [ _aside.twig, template for the sidebar ]
+        - [ _footer.twig, template for the common footer of all pages ]
+        - [ _header.twig, template for the common header of all pages ]
+        - [ _recordfooter.twig, meta-information for a single page or record ]
+        - [  _sub_menu.twig, template for the markup of the menu. See also `menu.yml` for the contents ]
+        - [  _sub_searchbox.twig, template for the markup for the search box. ]
+        - [ images/, graphical assets used in the theme ]
+        - [ javascripts/, any used javascripts should go in here ]
+        - [ css/, contains the (compiled) CSS for the theme ]
+        - [ scss/, "optional folder for Sass source files, to be compiled into CSS." ]
+        - [ config.yml, optional config file with settings specific to the theme. ]
+    more_text: "Templates and routing"
+    more_link: https://docs.bolt.cm/templates-routes
 
 setcontent: 
     title: "The `{% setcontent %}` tag"
@@ -37,6 +39,24 @@ setcontent:
         - [ "where { title: '%ipsum%' }", "use `%` in your `where` statement to use 'LIKE' matching."]
         - [ "where { tags: 'book || movie' }", "you can also use taxonomies in your `where`."]
         - [ "where { datepublish: '<today' }", "use shortcuts like 'now', 'today', 'tomorrow' for date selection."]
+    more_text: "{% setcontent %} in the documentation"
+    more_link: https://docs.bolt.cm/content-fetching
+
+debug: 
+    title: "Debugging bolt"
+    width: 2
+    prefix: |
+        If you’re coding and you want to get a quick look at whatever variable or object you’re trying to manipulate, you can dump its contents to the browser. In templates, use the following:
+        The variable can be a normal variable, a Record or multiple records of Content, or other stuff.    
+    table: 
+        - [Code, Function]
+        - ["`{{ dump(variable) }}`", Dump 'variable' in the template. ]
+        - ["`\Dumper::dump($variable);`", Dump 'variable' in your code. ]
+        - ["`{{ backtrace() }}`", "Get a backtrace throught the code to the current point in the execution, in the template." ]
+        - ["`\Dumper::backtrace(10);`", " Get a backtrace throught the code to the current point in the execution, in your code. The optional parameter denotes the maximum depth of the output of the backtrace." ]
+    more_text: "{{ dump() }} in the documentation"
+    more_link: "https://docs.bolt.cm/internals#-dump-and-dumperdump"
+
 
 apppath: 
     title: "The `paths` variable"
@@ -71,3 +91,5 @@ apppath:
         - ["themebasepath", "/[path]/theme"]
         - ["themepath", "/[path]/theme/base-2014"]
         - ["webpath", "/[path]/bolt"]
+    more_text: "app['paths'] in the docs"
+    more_link: "https://docs.bolt.cm/v20/internals#app8216paths8217"
