@@ -81,8 +81,14 @@
 
         {% endif %}
 
-        {% if block.more_text and block.more_link %}
-          <p class='readmore'>Read more: <a href='{{ block.more_link }}'>{{ block.more_text }}</a></p>
+        {% if block.links %}
+          <p class='readmore'>
+            Read more: 
+            {% for text, link in block.links %}
+              <a href='{{ link }}'>{{ text }}</a>
+              {%- if not loop.last %}, {% endif %}
+              {% endfor %}
+          </p>
         {% endif %}
 
       </div>

@@ -14,15 +14,90 @@ themestructure:
         - [ _footer.twig, template for the common footer of all pages ]
         - [ _header.twig, template for the common header of all pages ]
         - [ _recordfooter.twig, meta-information for a single page or record ]
-        - [  _sub_menu.twig, template for the markup of the menu. See also `menu.yml` for the contents ]
-        - [  _sub_searchbox.twig, template for the markup for the search box. ]
+        - [ _sub_menu.twig, template for the markup of the menu. See also `menu.yml` for the contents ]
+        - [ _sub_searchbox.twig, template for the markup for the search box. ]
         - [ images/, graphical assets used in the theme ]
         - [ javascripts/, any used javascripts should go in here ]
         - [ css/, contains the (compiled) CSS for the theme ]
         - [ scss/, "optional folder for Sass source files, to be compiled into CSS." ]
         - [ config.yml, optional config file with settings specific to the theme. ]
-    more_text: "Templates and routing"
-    more_link: https://docs.bolt.cm/templates-routes
+    links: { "Templates and routing": https://docs.bolt.cm/templates-routes }
+
+contenttypes: 
+    title: Contenttypes.yml
+    width: 2
+    prefix: | 
+        The contenttypes in Bolt are defined in the file `app/config/contenttypes.yml`. You can edit 
+        this file directly, or from within  the Bolt interface under 'Settings' > 'Contenttypes'. 
+    table: 
+        - [ Key, Function ]
+        - [ `name`, "The name of the Contenttype, should be plural." ]
+        - [ `singular_name`, "The name of one record in the Contenttype. Should be singular. " ]
+        - [ `slug` ,"(optional) This determines the slug of the contenttype, and therefore the URLs that are generated for this contenttype." ]
+        - [ `singular_slug` ,"(optional) This determines the slug of the a single record in this contenttype, and therefore the URLs that are generated." ]
+        - [ `description` ,"(optional) A short description of the contenttype. " ]
+        - [ `fields`, "The fields that make up the content in this contenttype. See the section [Field definitions](#fielddefinitions) for details." ]
+        - [ `taxonomy`, "An array listing the different taxonomies used by this contenttype. See the section on [Taxonomies](#taxonomies) for details." ]
+        - [ `relations`, "An array listing the different relations available to this contenttype. See the section on [Relations](/relations) for details." ]
+        - [ `record_template`, "The default template to use, when displaying a single Record of this Contenttype. " ]
+        - [ `listing_template`, "The default template to use, when displaying an overview of Records of this Contenttype. " ]
+        - [ `listing_records`, "The amount of records to show on a single overview page in the frontend." ]
+        - [ `sort` ,"(optional) The default sorting of this contenttype. For example `-datecreated`." ]
+        - [ `recordsperpage` ,"(optional) The amount of records shown on each page in the Bolt backend. If there are more records, they will be paginated." ]
+        - [ `show_on_dashboard` ,"(optional) When set to `false` the contenttype will not appear in the 'Recently edited &hellip;' list on the Dashboard page." ]
+        - [ `default_status` ,"(optional) Use this to set the default status for new records in this contenttype, like `published`, `held`, `draft` or `timed`." ]
+        - [ `searchable` ,"(optional) A boolean value to determine whether this contenttype should show up in searchresults. " ]
+        - [ `icon` ,"(optional) A [Font Awesome](http://fortawesome.github.io/Font-Awesome/) icon to be used in the sidebar for this contenttype. For example: `cubes`" ]
+        - [ `icon_singular` ,"(optional) A [Font Awesome](http://fortawesome.github.io/Font-Awesome/) icon to be used in the sidebar for a single record of this contenttype. For example: `cube`." ]
+    links: { "Defining contenttypes in the docs": "https://docs.bolt.cm/v20/content#defining-contenttypes" }
+
+fielddefinitions:
+    title: Field definitions in contenttypes.yml
+    width: 2
+    prefix: The `fields` option in a contenttpe lists the fields for that contenttype. The available fields are below. See also [Field options](#fieldoptions) 
+    table: 
+        - [ Key, function ]
+        - [ `text`, "Simple text-input, for single-line fields "]
+        - [ `slug`, "The slug is a required field, but you can include it in the fields list to customize it. "]
+        - [ `image`, "Simple image upload/select field.  "]
+        - [ `imagelist`, "A field to create a list of images. Useful for slideshows and imagesliders. "]
+        - [ `file`, "Simple file upload/select field. Also set `extensions` and the global setting for `accept_file_types` in the main `config.yml`. "]
+        - [ `filelist`, "A more complex upload/select field. "]
+        - [ `html`, "Wysiwyg HTML field. "]
+        - [ `textarea`, "Simple multi-line textarea input, for longer texts without HTML markup. "]
+        - [ `select`, "A drop-down list to make a pre-defined selection from.  "]
+        - [ `video`, "A set of fields for embedding videos from websites like Youtube and Vimeo. "]
+        - [ `geolocation`, "A set of fields for easy selection of a geolocation (latitude/longitude). "]
+        - [ `date`, "Datepicker widget, to set/select a date. "]
+        - [ `datetime`, "Similar to the `date` field, but adds an additional field for time. "]
+        - [ `integer`, "A field to store whole, integer numbers. "]
+        - [ `float`, "A field to store (floating point value) numbers. "]
+    links: { "Field definitions in the docs": "https://docs.bolt.cm/v20/content#field-definitions" }
+
+fieldoptions:
+    title: Field options in contenttypes.yml
+    width: 2
+    prefix: Each field in the contenttype is an array with several options. The available options are below. See also [Field definitions](#fielddefinitions) 
+    table: 
+        - [ Key, function ]
+        - [ "`class: large`", "Will show the field in a larger font, for `text` fields." ]
+        - [ "`class: wide`", "Will show the field extra wide, for filling out the column. `text` fields only." ]
+        - [ "`class: narrow`", "Will show the field narrow, for fields that should take only a couple of characters. For `text` fields only." ]
+        - [ "`variant: inline`", "Will show the field to the right of the label, taking up less space vertically. For `text` fields only." ]
+        - [ "`label: Foo`", "If omitted, the name of the field will be used as a label in the edit-screen. Replace 'Foo' with the desired label of the field." ]
+        - [ "`height: 150px`", "For `html` and `textarea` fields, this will determine the height in the edit-screen." ]
+        - [ "`index: true`", "Add a database index for this field, use with caution." ]
+        - [ "`prefix: ..`", "Text to add before the field. " ]
+        - [ "`postfix: ..`", "Text to add after the field. " ]
+        - [ "`default: ..`", "The default value for a field, if applicable. See below for an example." ]
+        - [ "`required: true`", "Use this to make a field required. " ]
+        - [ "`readonly: true`", "Use this to make a field readonly. Only works on `float`, `integer` and `text` fields." ]
+        - [ "`pattern: ..`", "Use this to validate a field against a certain pattern, using Regular Expression. " ]
+        - [ "`allowtwig: true`", "Explicitly allow twig to be used in this field. " ]
+        - [ "`info: ..`", "Use for displaying extra information about the field." ]
+        - [ "`extensions: [ .. ]`", "A list of allowed file extensions for uploading. Used with `file`, `filelist`, `image` and `imageli" ]
+    links: { "Field definitions in the docs": "https://docs.bolt.cm/v20/content#field-definitions" }
+
 
 setcontent: 
     title: "The `{% setcontent %}` tag"
@@ -39,8 +114,7 @@ setcontent:
         - [ "where { title: '%ipsum%' }", "use `%` in your `where` statement to use 'LIKE' matching."]
         - [ "where { tags: 'book || movie' }", "you can also use taxonomies in your `where`."]
         - [ "where { datepublish: '<today' }", "use shortcuts like 'now', 'today', 'tomorrow' for date selection."]
-    more_text: "{% setcontent %} in the documentation"
-    more_link: https://docs.bolt.cm/content-fetching
+    links: { "{% setcontent %} in the documentation": https://docs.bolt.cm/content-fetching }
 
 debug: 
     title: "Debugging bolt"
@@ -54,8 +128,7 @@ debug:
         - ["`\Dumper::dump($variable);`", Dump 'variable' in your code. ]
         - ["`{{ backtrace() }}`", "Get a backtrace throught the code to the current point in the execution, in the template." ]
         - ["`\Dumper::backtrace(10);`", " Get a backtrace throught the code to the current point in the execution, in your code. The optional parameter denotes the maximum depth of the output of the backtrace." ]
-    more_text: "{{ dump() }} in the documentation"
-    more_link: "https://docs.bolt.cm/internals#-dump-and-dumperdump"
+    links: { "{{ dump() }} in the documentation": "https://docs.bolt.cm/internals#-dump-and-dumperdump" }
 
 
 apppath: 
@@ -91,5 +164,4 @@ apppath:
         - ["themebasepath", "/[path]/theme"]
         - ["themepath", "/[path]/theme/base-2014"]
         - ["webpath", "/[path]/bolt"]
-    more_text: "app['paths'] in the docs"
-    more_link: "https://docs.bolt.cm/v20/internals#app8216paths8217"
+    links: { "app['paths'] in the docs": "https://docs.bolt.cm/v20/internals#app8216paths8217" }
