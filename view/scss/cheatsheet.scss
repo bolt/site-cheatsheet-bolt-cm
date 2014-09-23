@@ -1,7 +1,7 @@
 $base-font-size: 100%;
 
 
-$row-width: 1200px;
+$row-width: 1280px;
 $column-gutter: 16px;
 $total-columns: 7;
 
@@ -38,7 +38,7 @@ a {
     h2 {
         text-align: center;
         font-size: 16px;
-        font-weight: bold;
+        font-weight: normal;
         margin: 0;
         color: #FFF;
 
@@ -64,6 +64,7 @@ a {
     }
 
     table {
+        width: 100%;
         border: 0;
         margin: 0;
     }
