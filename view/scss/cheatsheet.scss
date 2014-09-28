@@ -8,7 +8,7 @@ $total-columns: 7;
 
 $table-bg: #FFF;
 $table-border-color: #FFF;
-$table-even-row-bg: #EEE;
+$table-even-row-bg: rgba(229, 150, 83, 0.15);
 $table-row-padding: 0px;
 $table-row-font-size: 12px;
 $table-line-height: 1.4;
@@ -47,12 +47,15 @@ a {
             border: 0;
             color: #DDD;
             padding: 1px 4px;
-            background-color: lighten($bolt-light-blue, 12);
+            background-color: rgba(0, 0, 0, 0.3);
         }        
 
+        a.anchor, a.anchor:hover {
+            float: right;
+            color: #BBB;
+        }
+
     }
-
-
 
     p {
         font-size: 13px;
@@ -62,6 +65,8 @@ a {
 
     code {
         padding: 0;
+        background-color: rgba(0, 0, 0, 0.1);
+        border: 0;
     }
 
     table {
@@ -72,6 +77,7 @@ a {
 
     td { 
         vertical-align: top;
+        padding: 1px;
         p {
             font-size: $table-row-font-size;
             line-height: $table-line-height;

@@ -1,3 +1,4 @@
+{% import '_macros.twig' as macro %}
 <!DOCTYPE html>
 <!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
 <!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
@@ -11,6 +12,9 @@
 	<link rel="stylesheet" href="/view/css/cheatsheet.css">
 
     <script src="/view/js/jquery.js"></script>
+    <script src="/view/js/urlify.js"></script>
+    <script src="/view/js/packery.pkgd.min.js"></script>
+    <script src="/view/js/cheatsheet.js"></script>
 
 	<!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -18,16 +22,16 @@
 
     <script type="text/javascript">
 
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-34977638-1']);
-      _gaq.push(['_setDomainName', 'docs.bolt.cm']);
-      _gaq.push(['_trackPageview']);
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-34977638-1']);
+        _gaq.push(['_setDomainName', 'docs.bolt.cm']);
+        _gaq.push(['_trackPageview']);
 
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
 
     </script>
 
@@ -36,64 +40,49 @@
 
 
 <div class="row">
-  
-  <div class="small-6 large-6 columns">
-    <h1>Bolt cheatsheet</h1>
-  </div>
 
-  {% for block in cheatsheet %}
+    <div class="small-6 large-6 columns">
+        <h1>Bolt cheatsheet</h1>
+    </div>
+
+</div>
+
+<div class="row" id="panels">
+
+    {% for block in cheatsheet %}
     <div class="small-6 large-{{block.width|default('4')}} columns">
-      <div class="panel">
-        <header>
-          {{ ('## ' ~ block.title)|markdown }} {# Small trick to get correct <h2> tags from markdown #} 
-        </header>
+        <div class="panel">
 
-        {% if block.prefix %}{{ block.prefix|markdown }}{% endif %}
+            <header>
+                {{ ('## ' ~ block.title)|markdown }} {# Small trick to get correct <h2> tags from markdown #} 
+            </header>
 
-        {% if block.table %}
+            {# prefix #}
+            {% if block.prefix %}{{ block.prefix|markdown }}{% endif %}
 
-          <table>
+            {# table one #}
+            {{ macro.table(block.table) }}
 
-          {% for row in block.table %}
-            <tr>
-            {% if loop.first %}
-              {% set cellcounter = row|length %}
-              {% set header = true %}
-              {% for cell in row %}
-                <th> {{ cell }} </th>
-              {% endfor %}
+            {# postfix #}
+            {% if block.postfix %}{{ block.postfix|markdown }}{% endif %}
 
-            {% else %}
+            {# table two #}
+            {{ macro.table(block.table2) }}
 
-              {% for cell in row %}
-                <td> {{ cell|markdown }} </td>
-                {% if loop.last and (loop.index < cellcounter) %}
-                  <td>&nbsp;</td>
-                {% endif %}
-              {% endfor %}
-
+            {# links #}
+            {% if block.links %}
+                <p class='readmore'>
+                    Read more: 
+                    {% for text, link in block.links %}
+                        <a href='{{ link }}'>{{ text }}</a>
+                        {%- if not loop.last %}, {% endif %}
+                    {% endfor %}
+                </p>
             {% endif %}
 
-            </tr>
-            {% endfor %}
-
-          </table>
-
-        {% endif %}
-
-        {% if block.links %}
-          <p class='readmore'>
-            Read more: 
-            {% for text, link in block.links %}
-              <a href='{{ link }}'>{{ text }}</a>
-              {%- if not loop.last %}, {% endif %}
-              {% endfor %}
-          </p>
-        {% endif %}
-
-      </div>
+        </div>
     </div>
-  {% endfor %}
+    {% endfor %}
 
 </div>
 
