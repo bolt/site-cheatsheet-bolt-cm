@@ -41,7 +41,7 @@ contenttypes:
         - [ `slug` ,"(optional) This determines the slug of the contenttype, and therefore the URLs that are generated for this contenttype." ]
         - [ `singular_slug` ,"(optional) This determines the slug of the a single record in this contenttype, and therefore the URLs that are generated." ]
         - [ `description` ,"(optional) A short description of the contenttype. " ]
-        - [ `fields`, "The fields that make up the content in this contenttype. See the section [Field definitions](#fielddefinitions) for details." ]
+        - [ `fields`, "The fields that make up the content in this contenttype. See the section [Field definitions](#field-definitions-contenttypesyml) for details." ]
         - [ `taxonomy`, "An array listing the different taxonomies used by this contenttype. See the section on [Taxonomies](#taxonomies) for details." ]
         - [ `relations`, "An array listing the different relations available to this contenttype. See the section on [Relations](/relations) for details." ]
         - [ `record_template`, "The default template to use, when displaying a single Record of this Contenttype. " ]
@@ -103,6 +103,15 @@ fieldoptions:
         - [ "`extensions: [ .. ]`", "A list of allowed file extensions for uploading. Used with `file`, `filelist`, `image` and `imageli" ]
     links: { "Field definitions in the docs": "https://docs.bolt.cm/v20/content#field-definitions" }
 
+relations:
+    title: Relationships
+    width: 2
+    links: { "Relationships in the docs": "http://bolt-docs.localhost/relationships"}
+
+taxonomies:
+    title: Taxonomies
+    width: 2
+    links: { "Taxonomies in the docs": "http://bolt-docs.localhost/taxonomies"}
 
 setcontent: 
     title: "The `{% setcontent %}` tag"
@@ -188,7 +197,7 @@ twig:
         - [ "`['foo', 'bar', 5]`", "An array containing three elements." ]
         - [ "`{'a': 'foo', 'b': 5}`", "A hash is a list of keys and value-pairs, separated by a comma." ]
 
-twigvariables: 
+twigsettingvariables: 
     title: Setting variables
     width: 2
     prefix: "The templates in Bolt are written in Twig. This is a fast, flexible and elegant templating language."
@@ -220,5 +229,38 @@ twiginclude:
         "Including other templates": "http://twig.sensiolabs.org/doc/templates.html#including-other-templates"
         "Template inheritance": "http://twig.sensiolabs.org/doc/templates.html#template-inheritance"
 
+twigmacro:
+    title: Macros in Twig
+    width: 2
+    prefix: |
+        Macros in Twig can be thought of as functions in PHP or Javascript. 
+    table:
+        - ["Syntax", "Explanation"]
+        - [ "`{% macro foo(var) %}`<br>`Foo and {{ var }}`<br>`{% endmacro %}`", "Define a macro in '_macros.twig'"]
+        - [ "`{% import '_macros.twig' as m %}`", "Import the macros in your template."]
+        - [ "`{{ m.foo('bar') }}`", "Call the macro in your template."]
+    postfix: | 
+        If you've defined the macros in the same file, you need to import them, using `_self`:  
+        `{% import _self as macro %}`
+
+twigcontrol:
+    title: Twig control structures
+    width: 2
+    links:
+        "For in the Twig docs": "http://twig.sensiolabs.org/doc/tags/for.html"
+        "If in the Twig docs": "http://twig.sensiolabs.org/doc/tags/if.html"
+
+twigfunctions:
+    title: Functions in Twig
+    width: 2
+
+
+twigfilters:
+    title: Filters in Twig
+    width: 2
+
+twigvariables:
+    title: Default variables in Twig
+    width: 2
 
 

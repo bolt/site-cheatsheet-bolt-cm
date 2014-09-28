@@ -30,7 +30,7 @@ jQuery(function($) {
             $('#box-anchors').append('<li><a href="#anchor-'+index+'">'+$(this).html()+'</a></li>');
             //add an a tag to the header with a sequential name
             var id = URLify($(this).html());
-            var anchor = ' <a href="' + id + '" class="anchor">&para;</a>';
+            var anchor = ' <a href="#' + id + '" class="anchor">&para;</a>';
             $(this).replaceWith('<h2 id="' + id + '">'+$(this).html() + anchor +'</h2>');
         });
     }
