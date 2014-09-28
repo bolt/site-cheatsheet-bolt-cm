@@ -1,4 +1,9 @@
 
+# http://twig.sensiolabs.org/doc/templates.html#template-inheritance
+# http://blog.lazycloud.net/symfony2-twig-cheatsheet/
+# http://willthemoor.github.io/Twig-Cheat-Sheet/
+# http://www.symfony2cheatsheet.com/#templating
+
 
 themestructure:
     title: Sample theme structure
@@ -165,3 +170,55 @@ apppath:
         - ["themepath", "/[path]/theme/base-2014"]
         - ["webpath", "/[path]/bolt"]
     links: { "app['paths'] in the docs": "https://docs.bolt.cm/v20/internals#app8216paths8217" }
+
+# Twig sections
+
+twig: 
+    title: Twig
+    width: 2
+    prefix: "The templates in Bolt are written in Twig. This is a fast, flexible and elegant templating language."
+    table: 
+        - [ "Syntax", "Meaning"]
+        - [ "`{{ … }}`", "Output someting, like 'echo' or 'print'."]
+        - [ "`{% … %}`", "Do someting, like 'for', 'if' or 'setcontent'."]
+        - [ "`{# … #}`", "Do nothing, this is a comment."]
+        - [ "`foo`", "A variable named 'foo'." ]
+        - [ "`5`, `3.1415`", "Integers and floating point numbers can be used as-is."]
+        - [ "`'foo'`", "A literal sting, that has the value 'foo'." ]
+        - [ "`['foo', 'bar', 5]`", "An array containing three elements." ]
+        - [ "`{'a': 'foo', 'b': 5}`", "A hash is a list of keys and value-pairs, separated by a comma." ]
+
+twigvariables: 
+    title: Setting variables
+    width: 2
+    prefix: "The templates in Bolt are written in Twig. This is a fast, flexible and elegant templating language."
+    table: 
+        - [ "Syntax", "Meaning"]
+        - [ "`{% set foo = 'bar' %}`", "Set the variable `foo` to contain the string `bar`."]
+        - [ "`{% set foo = [1, 2, 3] %}`", "You can set variables to contain literals, arrays, hashes, etc."]
+        - [ "`{% set foo = 'Hello ' ~ name %}`<br>`{% set foo = foo|merge(bar) %}`", "Use set to append strings or merge arrays."]
+
+twiginclude:
+    title: Including other templates
+    width: 3
+    prefix: | 
+        Use this to include another Twig template in the current template.
+        Twig parses the template like any other template, so you can use any
+        tags in your included template that you would use in the ‘main’
+        template. You can also use `include` inside the included templates."
+    table: 
+        - [ "Syntax", "Meaning"]
+        - [ "`{% include '_header.twig' %}`", "Includes the file `_header.twig`."]
+        - [ "`{% set vars = {'title': 'Hello, world.'} %}`<br>`{% include '_header.twig' with vars %}`", "You can set variables to contain literals, arrays, hashes, etc."]
+        - [ "`{% set foo = 'Hello ' ~ name %}`<br>`{% set foo = foo|merge(bar) %}`", "Use set to append strings or merge arrays."]
+    postfix: | 
+        An alternative to using 'include', is to set up your templates using Template
+        Inheritance. This is a method of defining a base template, and then expand it in
+        more detail in the templates that extend this base template. See the section on
+        [Template inheritance](http://twig.sensiolabs.org/doc/templates.html#template-inheritance) on the twig website.
+    links: 
+        "Including other templates": "http://twig.sensiolabs.org/doc/templates.html#including-other-templates"
+        "Template inheritance": "http://twig.sensiolabs.org/doc/templates.html#template-inheritance"
+
+
+
