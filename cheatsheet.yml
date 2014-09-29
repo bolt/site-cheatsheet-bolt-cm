@@ -7,14 +7,13 @@
 
 themestructure:
     title: Sample theme structure
-    width: 3
     prefix: "This is the common structure of a bolt theme. The files are located in `themes/`. Define the theme to be used with the `theme:` setting in the global `config.yml`."
     table: 
-        - [ Filename, Function, Example link ]
-        - [ index.twig, Homepage of the site, / ]
-        - [ listing.twig, "listing page for overview of pages, entries or listings per category or searchresults", "/entries /tags/movies /search?search=lorem" ]
-        - [ entry.twig, "single page for a record of the 'entries' contenttype" , "/entry/lorum-ipsum"   ]
-        - [ record.twig, "fallback single template for any contenttype that doesn't have its own single record template", "/showcase/dolor-sit"    ]
+        - [ Filename, Function ]
+        - [ index.twig, "Homepage or root of the site, ie `/`" ]
+        - [ listing.twig, "listing page for overview of pages, entries or listings per category or searchresults, ie `/entries`, `/tags/movies`, `/search?search=lorem`" ]
+        - [ entry.twig, "single page for a record of the 'entries' contenttype, ie. `/entry/lorum-ipsum`" ]
+        - [ record.twig, "fallback single template for any contenttype that doesn't have its own single record template, ie. `/showcase/dolor-sit`" ]
         - [ _aside.twig, template for the sidebar ]
         - [ _footer.twig, template for the common footer of all pages ]
         - [ _header.twig, template for the common header of all pages ]
@@ -30,7 +29,6 @@ themestructure:
 
 contenttypes: 
     title: Contenttypes.yml
-    width: 2
     prefix: | 
         The contenttypes in Bolt are defined in the file `app/config/contenttypes.yml`. You can edit 
         this file directly, or from within  the Bolt interface under 'Settings' > 'Contenttypes'. 
@@ -58,7 +56,6 @@ contenttypes:
 
 fielddefinitions:
     title: Field definitions in contenttypes.yml
-    width: 2
     prefix: The `fields` option in a contenttpe lists the fields for that contenttype. The available fields are below. See also [Field options](#fieldoptions) 
     table: 
         - [ Key, function ]
@@ -81,7 +78,6 @@ fielddefinitions:
 
 fieldoptions:
     title: Field options in contenttypes.yml
-    width: 2
     prefix: Each field in the contenttype is an array with several options. The available options are below. See also [Field definitions](#fielddefinitions) 
     table: 
         - [ Key, function ]
@@ -105,17 +101,14 @@ fieldoptions:
 
 relations:
     title: Relationships
-    width: 2
     links: { "Relationships in the docs": "http://bolt-docs.localhost/relationships"}
 
 taxonomies:
     title: Taxonomies
-    width: 2
     links: { "Taxonomies in the docs": "http://bolt-docs.localhost/taxonomies"}
 
 setcontent: 
     title: "The `{% setcontent %}` tag"
-    width: 2
     prefix: "The `{% setcontent %}` tag is one of the most important tags in Bolt, because it allows you to get content in any location to use however you need."
     table:
         - [ Parameter, Function ]
@@ -132,7 +125,6 @@ setcontent:
 
 debug: 
     title: "Debugging bolt"
-    width: 2
     prefix: |
         If you’re coding and you want to get a quick look at whatever variable or object you’re trying to manipulate, you can dump its contents to the browser. In templates, use the following:
         The variable can be a normal variable, a Record or multiple records of Content, or other stuff.    
@@ -147,7 +139,6 @@ debug:
 
 apppath: 
     title: "The `paths` variable"
-    width: 2
     prefix: "To see the current paths use `{{ dump(paths) }}` in a template. Use a specific path like this: `{{ paths.theme }}`. In PHP these are available as `$this->app['paths']`."
     table: 
         - ["Key", "Value"]
@@ -184,7 +175,6 @@ apppath:
 
 twig: 
     title: Twig
-    width: 2
     prefix: "The templates in Bolt are written in Twig. This is a fast, flexible and elegant templating language."
     table: 
         - [ "Syntax", "Meaning"]
@@ -199,7 +189,6 @@ twig:
 
 twigsettingvariables: 
     title: Setting variables
-    width: 2
     prefix: "The templates in Bolt are written in Twig. This is a fast, flexible and elegant templating language."
     table: 
         - [ "Syntax", "Meaning"]
@@ -209,7 +198,6 @@ twigsettingvariables:
 
 twiginclude:
     title: Including other templates
-    width: 3
     prefix: | 
         Use this to include another Twig template in the current template.
         Twig parses the template like any other template, so you can use any
@@ -218,7 +206,7 @@ twiginclude:
     table: 
         - [ "Syntax", "Meaning"]
         - [ "`{% include '_header.twig' %}`", "Includes the file `_header.twig`."]
-        - [ "`{% set vars = {'title': 'Hello, world.'} %}`<br>`{% include '_header.twig' with vars %}`", "You can set variables to contain literals, arrays, hashes, etc."]
+        - [ "`{% set v = {'title': 'Hello!'} %}`<br>`{% include '_header.twig' with v %}`", "You can set variables to contain literals, arrays, hashes, etc."]
         - [ "`{% set foo = 'Hello ' ~ name %}`<br>`{% set foo = foo|merge(bar) %}`", "Use set to append strings or merge arrays."]
     postfix: | 
         An alternative to using 'include', is to set up your templates using Template
@@ -231,7 +219,6 @@ twiginclude:
 
 twigmacro:
     title: Macros in Twig
-    width: 2
     prefix: |
         Macros in Twig can be thought of as functions in PHP or Javascript. 
     table:
@@ -245,22 +232,18 @@ twigmacro:
 
 twigcontrol:
     title: Twig control structures
-    width: 2
     links:
         "For in the Twig docs": "http://twig.sensiolabs.org/doc/tags/for.html"
         "If in the Twig docs": "http://twig.sensiolabs.org/doc/tags/if.html"
 
 twigfunctions:
     title: Functions in Twig
-    width: 2
 
 
 twigfilters:
     title: Filters in Twig
-    width: 2
 
 twigvariables:
     title: Default variables in Twig
-    width: 2
 
 
