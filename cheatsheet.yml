@@ -143,33 +143,33 @@ apppath:
     prefix: "To see the current paths use `{{ dump(paths) }}` in a template. Use a specific path like this: `{{ paths.theme }}`. In PHP these are available as `$this->app['paths']`."
     table: 
         - ["Key", "Value"]
-        - ["app", "/app/"]
-        - ["async", "/async/"]
-        - ["bolt", "/admin/"]
-        - ["upload", "/upload/"]
-        - ["files", "/files/"]
-        - ["extensions", "/extensions/"]
-        - ["root", "/"]
-        - ["currenturl", "http://example.com/entry/lorum-ipsum"]
-        - ["current", "/entry/lorum-ipsum"]
-        - ["hostname", "example.com"]
-        - ["hosturl", "http://example.com"]
-        - ["canonical", "example.com"]
-        - ["canonicalurl", "http://example.com/entry/lorum-ipsum"]
-        - ["protocol", "http"]
-        - ["rooturl", "http://example.com/"]
-        - ["theme", "/theme/base-2014/"]
-        - ["apppath", "/[path]/app"]
-        - ["cachepath", "/[path]/app/cache"]
-        - ["configpath", "/[path]/app/config"]
-        - ["databasepath", "/[path]/app/database"]
-        - ["extensionsconfigpath", "/[path]/app/config/extensions"]
-        - ["extensionspath", "/[path]/extensions"]
-        - ["filespath", "/[path]/files"]
-        - ["rootpath", "/[path]/bolt"]
-        - ["themebasepath", "/[path]/theme"]
-        - ["themepath", "/[path]/theme/base-2014"]
-        - ["webpath", "/[path]/bolt"]
+        - ["`app`", "`/app/`"]
+        - ["`async`", "`/async/`"]
+        - ["`bolt`", "`/admin/`"]
+        - ["`upload`", "`/upload/`"]
+        - ["`files`", "`/files/`"]
+        - ["`extensions`", "`/extensions/`"]
+        - ["`root`", "`/`"]
+        - ["`currenturl`", "`http://example.com/entry/lorum-ipsum`"]
+        - ["`current`", "`/entry/lorum-ipsum`"]
+        - ["`hostname`", "`example.com`"]
+        - ["`hosturl`", "`http://example.com`"]
+        - ["`canonical`", "`example.com`"]
+        - ["`canonicalurl`", "`http://example.com/entry/lorum-ipsum`"]
+        - ["`protocol`", "`http`"]
+        - ["`rooturl`", "`http://example.com/`"]
+        - ["`theme`", "`/theme/base-2014/`"]
+        - ["`apppath`", "`/[path]/app`"]
+        - ["`cachepath`", "`/[path]/app/cache`"]
+        - ["`configpath`", "`/[path]/app/config`"]
+        - ["`databasepath`", "`/[path]/app/database`"]
+        - ["`extensionsconfigpath`", "`/[path]/app/config/extensions`"]
+        - ["`extensionspath`", "`/[path]/extensions`"]
+        - ["`filespath`", "`/[path]/files`"]
+        - ["`rootpath`", "`/[path]/bolt`"]
+        - ["`themebasepath`", "`/[path]/theme`"]
+        - ["`themepath`", "`/[path]/theme/base-2014`"]
+        - ["`webpath`", "`/[path]/bolt`"]
     links: { "app['paths'] in the docs": "https://docs.bolt.cm/v20/internals#app8216paths8217" }
 
 # Twig sections
@@ -227,7 +227,7 @@ twigmacro:
         Macros in Twig can be thought of as functions in PHP or Javascript. 
     table:
         - ["Syntax", "Explanation"]
-        - [ "`{% macro foo(var) %}`<br>`Foo and {{ var }}`<br>`{% endmacro %}`", "Define a macro in '_macros.twig'"]
+        - [ "`{% macro foo(var) %}`<br>&nbsp;&nbsp;&nbsp;&nbsp;`Foo and {{ var }}`<br>`{% endmacro %}`", "Define a macro in '_macros.twig'"]
         - [ "`{% import '_macros.twig' as m %}`", "Import the macros in your template."]
         - [ "`{{ m.foo('bar') }}`", "Call the macro in your template."]
     table_linear: true
@@ -235,11 +235,27 @@ twigmacro:
         If you've defined the macros in the same file, you need to import them, using `_self`:  
         `{% import _self as macro %}`
 
+# `<br>`
+
 twigcontrol:
     title: Twig control structures
+    prefix: |
+        The `if` tag is used to check if 'something' (an expression) is `true` or `false`, and act accordingly. 
+    table: 
+        - ["Syntax", "Explanation"]
+        - [ "`{% if record.title %}`<br>&nbsp;&nbsp;&nbsp;&nbsp;`{{ record.title }}`<br>`{% else %}`<br>&nbsp;&nbsp;&nbsp;&nbsp;`No title given.`<br>`{% endif %}`", "Simple 'if' statement, with an `else` clause."]
+        - [ "`{% if user.name == 'bob' %}`<br>&nbsp;&nbsp;&nbsp;&nbsp;`Oh, it's you…`<br>`{% else %}`<br>&nbsp;&nbsp;&nbsp;&nbsp;`Well, hello {{ user.name }}`<br>`{% endif %}`", ""]
+    postfix: |
+        The `for` tag is used to iterate over a hash or array, repeating the same code for each element. 
+    table2: 
+        - ["Syntax", "Explanation"]
+        - [ "`{% for user in users %}`<br>&nbsp;&nbsp;&nbsp;&nbsp;`<a href='{{ user.email }}'>`<br>&nbsp;&nbsp;&nbsp;&nbsp;`{{ user.name }}</a>`<br>`{% else %}`<br>&nbsp;&nbsp;&nbsp;&nbsp;`No active users.`<br>`{% endfor %}`", "Simple 'for' loop. Note the use of `else` if there are no items."]
+        - [ "`{% for user in users if user.active %}`", "You can use 'if' in the 'for' statement."]
+        - [ "`{% for user in users|sort('name') %}`", "Use a filter, for example to sort on `user.name`."]            
+    table_linear: true
     links:
-        "For in the Twig docs": "http://twig.sensiolabs.org/doc/tags/for.html"
         "If in the Twig docs": "http://twig.sensiolabs.org/doc/tags/if.html"
+        "For in the Twig docs": "http://twig.sensiolabs.org/doc/tags/for.html"
 
 twigfunctions:
     title: Functions in Twig
