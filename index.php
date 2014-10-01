@@ -31,6 +31,15 @@ $markdown = new Twig_SimpleFilter(
 ));
 $twig->addFilter($markdown);
 
+// Add slug filter to twig. 
+$slug = new Twig_SimpleFilter(
+    'slug', 
+    function ($name) { return \URLify::filter($name); }, 
+    array('is_safe' => array('html')
+));
+$twig->addFilter($slug);
+
+
 echo $twig->render('index.twig', array(
     'title' => "Bolt Cheatsheet",
     'cheatsheet' => $cheatsheet,

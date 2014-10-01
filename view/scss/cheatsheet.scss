@@ -15,7 +15,7 @@ $table-line-height: 1.4;
 
 
 // Bolt colors: 
-$bolt-blue: #005394;
+$bolt-blue: #204460;
 $bolt-light-blue: #39556A;
 $bolt-orange: #DC6A23;
 
@@ -23,6 +23,20 @@ $bolt-orange: #DC6A23;
 
 a {
     color: $bolt-blue;
+}
+
+nav.top-bar { 
+
+    background-color: darken($bolt-blue, 1); 
+
+    margin-bottom: 8px;
+
+    .name h1 {
+        font-weight: bold;
+        color: #FFF;
+        margin-left: 12px;
+    }
+
 }
 
 .panel {

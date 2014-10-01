@@ -12,9 +12,15 @@
 	<link rel="stylesheet" href="view/css/cheatsheet.css">
 
     <script src="view/js/jquery.js"></script>
-    <script src="view/js/urlify.js"></script>
     <script src="view/js/packery.pkgd.min.js"></script>
+    {# <script src="view/bower_components/foundation/js/foundation.min.js"></script>#} 
+    <script src="view/bower_components/foundation/js/foundation/foundation.js"></script>
+    <script src="view/bower_components/foundation/js/foundation/foundation.topbar.js"></script>
     <script src="view/js/cheatsheet.js"></script>
+
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,400italic&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+     
+    
 
 	<!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -38,14 +44,32 @@
 </head>
 <body>
 
+<nav class="top-bar" data-topbar role="navigation">
+  <ul class="title-area">
+    <li class="name">
+      <h1>Bolt Cheatsheet</h1>
+    </li>
+     <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+  </ul>
 
-<div class="row">
+  <section class="top-bar-section">
+    <!-- Right Nav Section -->
+    <ul class="right">
+      <li class="has-dropdown">
+        <a href="#">Quick jump</a>
+        <ul class="dropdown">
+            {% for block in cheatsheet %}
+            <li>
+            <a href="#{{block.title|slug}}">{{ block.title }}</a>
+            </li>
+            {% endfor %} 
+        </ul>
+      </li>
+    </ul>
+  </section>
+</nav>
 
-    <div class="small-6 large-6 columns">
-        <h1>Bolt cheatsheet</h1>
-    </div>
-
-</div>
 
 <div class="row" id="panels">
 
@@ -54,7 +78,11 @@
         <div class="panel">
 
             <header>
-                {{ ('## ' ~ block.title)|markdown }} {# Small trick to get correct <h2> tags from markdown #} 
+                {% set title = block.title|markdown|replace({'<p>': '', '</p>': ''}) %} 
+                <h2 id="{{ block.title|slug }}">
+                    {{ title }}
+                    <a href="#{{ block.title|slug}}" class="anchor">&para;</a>
+                </h2>
             </header>
 
             {# prefix #}
