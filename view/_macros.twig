@@ -1,8 +1,8 @@
-{% macro table(data) %}
+{% macro table(data, linear) %}
 
     {% if data is iterable %}
 
-      <table>
+      <table {% if linear %}class="linear"{% endif %}>
 
       {% for row in data %}
         <tr>

@@ -80,7 +80,7 @@
             <header>
                 {% set title = block.title|markdown|replace({'<p>': '', '</p>': ''}) %} 
                 <h2 id="{{ block.title|slug }}">
-                    {{ title }}
+                    {{ title|raw }}
                     <a href="#{{ block.title|slug}}" class="anchor">&para;</a>
                 </h2>
             </header>
@@ -89,13 +89,13 @@
             {% if block.prefix %}{{ block.prefix|markdown }}{% endif %}
 
             {# table one #}
-            {{ macro.table(block.table) }}
+            {{ macro.table(block.table, block.table_linear|default(false)) }}
 
             {# postfix #}
             {% if block.postfix %}{{ block.postfix|markdown }}{% endif %}
 
             {# table two #}
-            {{ macro.table(block.table2) }}
+            {{ macro.table(block.table2, block.table_linear|default(false)) }}
 
             {# links #}
             {% if block.links %}

@@ -134,6 +134,7 @@ debug:
         - ["`\Dumper::dump($variable);`", Dump 'variable' in your code. ]
         - ["`{{ backtrace() }}`", "Get a backtrace throught the code to the current point in the execution, in the template." ]
         - ["`\Dumper::backtrace(10);`", " Get a backtrace throught the code to the current point in the execution, in your code. The optional parameter denotes the maximum depth of the output of the backtrace." ]
+    table_linear: true
     links: { "{{ dump() }} in the documentation": "https://docs.bolt.cm/internals#-dump-and-dumperdump" }
 
 
@@ -195,6 +196,8 @@ twigsettingvariables:
         - [ "`{% set foo = 'bar' %}`", "Set the variable `foo` to contain the string `bar`."]
         - [ "`{% set foo = [1, 2, 3] %}`", "You can set variables to contain literals, arrays, hashes, etc."]
         - [ "`{% set foo = 'Hello ' ~ name %}`<br>`{% set foo = foo|merge(bar) %}`", "Use set to append strings or merge arrays."]
+    table_linear: true
+
 
 twiginclude:
     title: Including other templates
@@ -208,6 +211,7 @@ twiginclude:
         - [ "`{% include '_header.twig' %}`", "Includes the file `_header.twig`."]
         - [ "`{% set v = {'title': 'Hello!'} %}`<br>`{% include '_header.twig' with v %}`", "You can set variables to contain literals, arrays, hashes, etc."]
         - [ "`{% set foo = 'Hello ' ~ name %}`<br>`{% set foo = foo|merge(bar) %}`", "Use set to append strings or merge arrays."]
+    table_linear: true
     postfix: | 
         An alternative to using 'include', is to set up your templates using Template
         Inheritance. This is a method of defining a base template, and then expand it in
@@ -226,6 +230,7 @@ twigmacro:
         - [ "`{% macro foo(var) %}`<br>`Foo and {{ var }}`<br>`{% endmacro %}`", "Define a macro in '_macros.twig'"]
         - [ "`{% import '_macros.twig' as m %}`", "Import the macros in your template."]
         - [ "`{{ m.foo('bar') }}`", "Call the macro in your template."]
+    table_linear: true
     postfix: | 
         If you've defined the macros in the same file, you need to import them, using `_self`:  
         `{% import _self as macro %}`
