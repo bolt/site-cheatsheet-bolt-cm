@@ -107,21 +107,6 @@ taxonomies:
     title: Taxonomies
     links: { "Taxonomies in the docs": "http://bolt-docs.localhost/taxonomies"}
 
-setcontent: 
-    title: "The `{% setcontent %}` tag"
-    prefix: "The `{% setcontent %}` tag is one of the most important tags in Bolt, because it allows you to get content in any location to use however you need."
-    table:
-        - [ Parameter, Function ]
-        - [ variable name, The first parameter (before the '=') is always the variable that will contain the result set ]
-        - [ 'contenttype', The name of the contenttype to fetch records from ] 
-        - [ 'contenttype/latest/10', get the latest 10 records from `contenttype` ]        
-        - [ 'contenttype/slug', get the record from `contenttype` with the slug `slug` ]        
-        - [ 'contenttype/123', get the record from `contenttype` with the id `123` ]   
-        - [ "where { username: 'bob' }", "use `where` to define what needs to be fetched."]                             
-        - [ "where { title: '%ipsum%' }", "use `%` in your `where` statement to use 'LIKE' matching."]
-        - [ "where { tags: 'book || movie' }", "you can also use taxonomies in your `where`."]
-        - [ "where { datepublish: '<today' }", "use shortcuts like 'now', 'today', 'tomorrow' for date selection."]
-    links: { "{% setcontent %} in the documentation": https://docs.bolt.cm/content-fetching }
 
 debug: 
     title: "Debugging bolt"
@@ -171,6 +156,7 @@ apppath:
         - ["`themepath`", "`/[path]/theme/base-2014`"]
         - ["`webpath`", "`/[path]/bolt`"]
     links: { "app['paths'] in the docs": "https://docs.bolt.cm/v20/internals#app8216paths8217" }
+    add_separator: true
 
 # Twig sections
 
@@ -235,16 +221,14 @@ twigmacro:
         If you've defined the macros in the same file, you need to import them, using `_self`:  
         `{% import _self as macro %}`
 
-# `<br>`
-
 twigcontrol:
     title: Twig control structures
     prefix: |
         The `if` tag is used to check if 'something' (an expression) is `true` or `false`, and act accordingly. 
     table: 
         - ["Syntax", "Explanation"]
-        - [ "`{% if record.title %}`<br>&nbsp;&nbsp;&nbsp;&nbsp;`{{ record.title }}`<br>`{% else %}`<br>&nbsp;&nbsp;&nbsp;&nbsp;`No title given.`<br>`{% endif %}`", "Simple 'if' statement, with an `else` clause."]
-        - [ "`{% if user.name == 'bob' %}`<br>&nbsp;&nbsp;&nbsp;&nbsp;`Oh, it's you…`<br>`{% else %}`<br>&nbsp;&nbsp;&nbsp;&nbsp;`Well, hello {{ user.name }}`<br>`{% endif %}`", ""]
+        - [ "`{% if record.title %}`<br>&nbsp;&nbsp;&nbsp;&nbsp;`{{ record.title }}`<br>`{% else %}`<br>&nbsp;&nbsp;&nbsp;&nbsp;`No title given.`<br>`{% endif %}`", "Simple 'if' statement."]
+        - [ "`{% if user.name == 'bob' %}`<br>&nbsp;&nbsp;&nbsp;&nbsp;`Oh, it's you…`<br>`{% else %}`<br>&nbsp;&nbsp;&nbsp;&nbsp;`Well, hello {{ user.name }}`<br>`{% endif %}`", "'if' statement, with an `else` clause."]
     postfix: |
         The `for` tag is used to iterate over a hash or array, repeating the same code for each element. 
     table2: 
@@ -259,6 +243,10 @@ twigcontrol:
 
 twigfunctions:
     title: Functions in Twig
+    prefix: |
+        Functions in twig look like this: `{{ foo('bar', 1, 2) }}`. A
+        function can take zero or more parameters. Basically, a function does
+        something, and then returns the result for output or further processing.
     table:
         - [ 'Name', 'Function' ]
         - [ '`dump(var)`', "Print a nicely formatted dump of the contents of \'var\'." ]
@@ -285,8 +273,31 @@ twigfunctions:
         - [ '`redirect(path)`', 'Redirect the browser to another page.' ]
     postfix: "Note: `functions()` marked with an '*' can be used as `|filter` as well. "
 
+
+setcontent: 
+    title: "The `{% setcontent %}` tag"
+    prefix: "The `{% setcontent %}` tag is one of the most important tags in Bolt, because it allows you to get content in any location to use however you need."
+    table:
+        - [ Parameter, Function ]
+        - [ variable name, The first parameter (before the '=') is always the variable that will contain the result set ]
+        - [ 'contenttype', The name of the contenttype to fetch records from ] 
+        - [ 'contenttype/latest/10', get the latest 10 records from `contenttype` ]        
+        - [ 'contenttype/slug', get the record from `contenttype` with the slug `slug` ]        
+        - [ 'contenttype/123', get the record from `contenttype` with the id `123` ]   
+        - [ "where { username: 'bob' }", "use `where` to define what needs to be fetched."]                             
+        - [ "where { title: '%ipsum%' }", "use `%` in your `where` statement to use 'LIKE' matching."]
+        - [ "where { tags: 'book || movie' }", "you can also use taxonomies in your `where`."]
+        - [ "where { datepublish: '<today' }", "use shortcuts like 'now', 'today', 'tomorrow' for date selection."]
+    links: { "{% setcontent %} in the documentation": https://docs.bolt.cm/content-fetching }
+
+
 twigfilters:
     title: Filters in Twig
+    prefix: | 
+        Filters in twig look like this: `{{ 'foo'|bar }}`, and can take
+        optional parameters. A filter basically transforms whatever you put into
+        it, so it can be processed further. Filters can be chained together, for
+        example: `{{ record.title|excerpt(20)|lower }}`. 
     table:
         - [ 'Name', 'Function' ]
         - [ '`localdate(date)`', 'Returns the date and time in a particular format. Takes the locale into account. See [`strftime()`](http://nl3.php.net/strftime) for fomatting options ' ]
