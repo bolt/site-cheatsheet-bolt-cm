@@ -106,57 +106,8 @@ relations:
 taxonomies:
     title: Taxonomies
     links: { "Taxonomies in the docs": "http://bolt-docs.localhost/taxonomies"}
-
-
-debug: 
-    title: "Debugging bolt"
-    prefix: |
-        If you’re coding and you want to get a quick look at whatever variable or object you’re trying to manipulate, you can dump its contents to the browser. In templates, use the following:
-        The variable can be a normal variable, a Record or multiple records of Content, or other stuff.    
-    table: 
-        - [Code, Function]
-        - ["`{{ dump(variable) }}`", Dump 'variable' in the template. ]
-        - ["`\Dumper::dump($variable);`", Dump 'variable' in your code. ]
-        - ["`{{ backtrace() }}`", "Get a backtrace throught the code to the current point in the execution, in the template." ]
-        - ["`\Dumper::backtrace(10);`", " Get a backtrace throught the code to the current point in the execution, in your code. The optional parameter denotes the maximum depth of the output of the backtrace." ]
-    table_linear: true
-    links: { "{{ dump() }} in the documentation": "https://docs.bolt.cm/internals#-dump-and-dumperdump" }
-
-
-apppath: 
-    title: "The `paths` variable"
-    prefix: "To see the current paths use `{{ dump(paths) }}` in a template. Use a specific path like this: `{{ paths.theme }}`. In PHP these are available as `$this->app['paths']`."
-    table: 
-        - ["Key", "Value"]
-        - ["`app`", "`/app/`"]
-        - ["`async`", "`/async/`"]
-        - ["`bolt`", "`/admin/`"]
-        - ["`upload`", "`/upload/`"]
-        - ["`files`", "`/files/`"]
-        - ["`extensions`", "`/extensions/`"]
-        - ["`root`", "`/`"]
-        - ["`currenturl`", "`http://example.com/entry/lorum-ipsum`"]
-        - ["`current`", "`/entry/lorum-ipsum`"]
-        - ["`hostname`", "`example.com`"]
-        - ["`hosturl`", "`http://example.com`"]
-        - ["`canonical`", "`example.com`"]
-        - ["`canonicalurl`", "`http://example.com/entry/lorum-ipsum`"]
-        - ["`protocol`", "`http`"]
-        - ["`rooturl`", "`http://example.com/`"]
-        - ["`theme`", "`/theme/base-2014/`"]
-        - ["`apppath`", "`/[path]/app`"]
-        - ["`cachepath`", "`/[path]/app/cache`"]
-        - ["`configpath`", "`/[path]/app/config`"]
-        - ["`databasepath`", "`/[path]/app/database`"]
-        - ["`extensionsconfigpath`", "`/[path]/app/config/extensions`"]
-        - ["`extensionspath`", "`/[path]/extensions`"]
-        - ["`filespath`", "`/[path]/files`"]
-        - ["`rootpath`", "`/[path]/bolt`"]
-        - ["`themebasepath`", "`/[path]/theme`"]
-        - ["`themepath`", "`/[path]/theme/base-2014`"]
-        - ["`webpath`", "`/[path]/bolt`"]
-    links: { "app['paths'] in the docs": "https://docs.bolt.cm/v20/internals#app8216paths8217" }
     add_separator: true
+
 
 # Twig sections
 
@@ -314,8 +265,87 @@ twigtests:
         - [ 'Name', 'Function' ]
         - [ '`testjson`', 'Test whether a passed string contains valid JSON' ]
         - [ '`available`', 'Test whether a given function, filter or test is available in Twig. ' ]
+    add_separator: true
+
 
 twigvariables:
     title: Default variables in Twig
+    table: 
+        - ["Key", "Value"]
+        - ["`user`", "An array containing the specifics of the currently logged on user. Empty if the user is not logged on."]
+        - ["`bolt_name`", "A string containing the current name of the Bolt version." ]
+        - ["`bolt_version`", "The current version number, like '2.0.2'."]
+        - ["`frontend", "A boolean that's `true`, if we're currently rendering a template in the frontend."]
+        - ["`backend", "A boolean that's `true`, if we're currently rendering a template in the backend."]
+        - ["`async", "A boolean that's `true`, if we're currently rendering a template that's called asynchronously."]
+        - ["`users", "An assay containing the users in the system. "]
+        - ["`theme", "An array, containing the theme-specific settings, as defined in the `config.yml` file in the theme folder."]
+        - ["`config", "An object containing the current configuration. See the block [Config object](#configobject)."]
+
+debug: 
+    title: "Debugging bolt"
+    prefix: |
+        If you’re coding and you want to get a quick look at whatever variable or object you’re trying to manipulate, you can dump its contents to the browser. In templates, use the following:
+        The variable can be a normal variable, a Record or multiple records of Content, or other stuff.    
+    table: 
+        - [Code, Function]
+        - ["`{{ dump(variable) }}`", Dump 'variable' in the template. ]
+        - ["`\Dumper::dump($variable);`", Dump 'variable' in your code. ]
+        - ["`{{ backtrace() }}`", "Get a backtrace throught the code to the current point in the execution, in the template." ]
+        - ["`\Dumper::backtrace(10);`", " Get a backtrace throught the code to the current point in the execution, in your code. The optional parameter denotes the maximum depth of the output of the backtrace." ]
+    table_linear: true
+    links: { "{{ dump() }} in the documentation": "https://docs.bolt.cm/internals#-dump-and-dumperdump" }
+
+
+apppath: 
+    title: "The `paths` variable"
+    prefix: "To see the current paths use `{{ dump(paths) }}` in a template. Use a specific path like this: `{{ paths.theme }}`. In PHP these are available as `$this->app['paths']`."
+    table: 
+        - ["Key", "Value"]
+        - ["`app`", "`/app/`"]
+        - ["`async`", "`/async/`"]
+        - ["`bolt`", "`/admin/`"]
+        - ["`upload`", "`/upload/`"]
+        - ["`files`", "`/files/`"]
+        - ["`extensions`", "`/extensions/`"]
+        - ["`root`", "`/`"]
+        - ["`currenturl`", "`http://example.com/entry/lorum-ipsum`"]
+        - ["`current`", "`/entry/lorum-ipsum`"]
+        - ["`hostname`", "`example.com`"]
+        - ["`hosturl`", "`http://example.com`"]
+        - ["`canonical`", "`example.com`"]
+        - ["`canonicalurl`", "`http://example.com/entry/lorum-ipsum`"]
+        - ["`protocol`", "`http`"]
+        - ["`rooturl`", "`http://example.com/`"]
+        - ["`theme`", "`/theme/base-2014/`"]
+        - ["`apppath`", "`/[path]/app`"]
+        - ["`cachepath`", "`/[path]/app/cache`"]
+        - ["`configpath`", "`/[path]/app/config`"]
+        - ["`databasepath`", "`/[path]/app/database`"]
+        - ["`extensionsconfigpath`", "`/[path]/app/config/extensions`"]
+        - ["`extensionspath`", "`/[path]/extensions`"]
+        - ["`filespath`", "`/[path]/files`"]
+        - ["`rootpath`", "`/[path]/bolt`"]
+        - ["`themebasepath`", "`/[path]/theme`"]
+        - ["`themepath`", "`/[path]/theme/base-2014`"]
+        - ["`webpath`", "`/[path]/bolt`"]
+    links: { "app['paths'] in the docs": "https://docs.bolt.cm/v20/internals#app8216paths8217" }
+
+
+apprequest: 
+    title: "The `app.request` variable."
+    prefix: |
+        The `app.request` variable holds all request variables, like those in 
+        `$_GET` and `$_POST`, but also session variables and attributes set by 
+        Bolt itself. Use `{{ app.request.get('foo') }}` to access them. 
+    table: 
+        - ["Key", "Value" ]
+        - [ "`_controller`", "An array with the specifics of the current controller" ]
+        - [ "`_route`", "The name of the (current) matching route. " ]
+        - [ "`_route_params`", "Parameters of the currently matching route, if there are any." ]
+        - [ "`app`", "The current app object. Usually `Bolt\Application`, unless you're doing something really weird." ]
+
+
+
 
 
