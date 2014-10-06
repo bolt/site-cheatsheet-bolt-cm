@@ -259,10 +259,50 @@ twigcontrol:
 
 twigfunctions:
     title: Functions in Twig
-
+    table:
+        - [ 'Name', 'Function' ]
+        - [ '`dump(var)`', 'Print a nicely formatted dump of the contents of \'var\'.' ]
+        - [ '`backtrace()`', 'Print a formatted dump of the backtrace stack, with the "followed path" through the code.' ]
+        - [ '`excerpt(var, length) *`', 'Create a short excerpt from `var`, without HTML formatting, restricted by `length` characters. `var` can be a \'record\' object, a single value from a \'record\' or a regular string.' ]
+        - [ '`markdown() *`', 'Parse a given string as Markdown. ' ]
+        - [ '`current() *`', 'Checks if a given record corresponds to the page being shown in the browser.' ]
+        - [ '`htmllang`', 'Returns the language value for in tags where the language attribute is required' ]
+        - [ '`pager`', 'Output a simple pager, for paginated listing pages.' ]
+        - [ '`debugbar`', 'Switch the debugbar \'on\' or \'off\'.' ]
+        - [ '`ismobileclient`', 'Check if the current page is viewed on a mobile device' ]
+        - [ '`menu`', 'Output a menu. See the section on [menus](#menus). ' ]
+        - [ '`isallowed($what, $content)`', 'Check if a certain action is allowed for the current user (and possibly content item)' ]
+        - [ '`thumbnail(filename, w, h) *`', 'Helper function to make a path to an image thumbnail' ]
+        - [ '`showimage(filename, w, h) *`', 'Helper function to show an image on a rendered page' ]
+        - [ '`image(filename, w, h) *`', 'Helper function to make a path to an image' ]
+        - [ '`popup(filename, w, h) *`', 'Helper function to wrap an image in a Magnific popup HTML tag, with thumbnail' ]
+        - [ '`imageinfo(filename) *`', 'Get an array with the dimensions of an image, together with its aspectratio and some other info' ]
+        - [ '`file_exists(filename)`', 'Check if a file exists' ]
+        - [ '`request(para, from)`', 'Return the requested parameter from `$_REQUEST`, `$_GET` or `$_POST`.' ]
+        - [ '`first / last() *`', 'Returns the first item of an array' ]
+        - [ '`shuffle(array) *`', 'Randomly shuffle the contents of a passed array' ]
+        - [ '`__(label) *`', 'Translate a label to the current localisation settings' ]
+        - [ '`redirect(path)`', 'Redirect the browser to another page.' ]
+    postfix: "Note: `functions()` marked with an '*' can be used as `|filter` as well. "
 
 twigfilters:
     title: Filters in Twig
+    table:
+        - [ 'Name', 'Function' ]
+        - [ '`localdate(date)`', 'Returns the date and time in a particular format. Takes the locale into account. See [`strftime()`](http://nl3.php.net/strftime) for fomatting options ' ]
+        - [ '`twig(string)`', 'Formats the given string as Twig in HTML' ]
+        - [ '`ucfirst(string)`', 'Make a string\'s first character uppercase' ]
+        - [ '`slug(string)`', "Return the 'sluggified' version of a string: 'Lørüm Ipsum' -> 'lorum-ipsum'" ]
+        - [ '`safestring(string)`', "Return a 'safe string' version of a given string: 'Lørüm Ipsum' -> 'lorum ipsum'" ]
+        - [ '`order(array, key)`', 'Order an array, based on the given 'key'' ]
+        - [ '`json_decode`', 'Leniently decode a serialized compound data structure to an array / object. Note: `json_encode` does the opposite, and is built in, in Twig.' ]
+
+twigtests:
+    title: Twig tests in Bolt
+    table: 
+        - [ 'Name', 'Function' ]
+        - [ '`testjson`', 'Test whether a passed string contains valid JSON' ]
+        - [ '`available`', 'Test whether a given function, filter or test is available in Twig. ' ]
 
 twigvariables:
     title: Default variables in Twig
