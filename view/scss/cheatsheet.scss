@@ -18,7 +18,8 @@ $table-row-padding: 0px;
 $table-row-font-size: 12px;
 $table-line-height: 1.4;
 
-
+// Topbar dropdown color. Screw you, Foundation.
+$oil: darken($bolt-blue, 10);
 
 @import "foundation";
 
@@ -26,9 +27,9 @@ a {
     color: $bolt-blue;
 }
 
-nav.top-bar { 
+.top-bar { 
 
-    background-color: darken($bolt-blue, 1); 
+    background-color: $bolt-blue; 
 
     margin-bottom: 8px;
 
@@ -39,6 +40,7 @@ nav.top-bar {
     }
 
 }
+
 
 .panel {
     border: 1px solid #ccc;
