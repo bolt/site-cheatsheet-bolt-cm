@@ -1,7 +1,7 @@
 
 jQuery(function($) { 
 
-    var $container = $('#panels');
+    var $container = $('.panels');
     // init
     $container.packery({
           itemSelector: '.columns',

@@ -71,7 +71,7 @@
 </nav>
 
 
-<div class="row" id="panels">
+<div class="row panels">
 
     {% for block in cheatsheet %}
     <div class="small-6 medium-3 large-{{block.width|default('2')}} columns">
@@ -110,6 +110,13 @@
 
         </div>
     </div>
+
+    {% if block.add_separator %}
+    </div>
+        <hr>
+    <div class="row panels">
+    {% endif %}
+
     {% endfor %}
 
 </div>
