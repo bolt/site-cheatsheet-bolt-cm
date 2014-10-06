@@ -112,6 +112,13 @@ relations:
 
 taxonomies:
     title: Taxonomies
+    prefix: |
+        You can create taxonomies by adding them to `taxonomy.yml`. You can define your own taxonomies, and choose how they behave.
+    table: 
+        - [ "Type", "Function" ]
+        - [ "`tags`", "Tags are a sort of ‘freeform’ labeling. Each record can have several tags, that do not have to be selected from a predefined list." ]
+        - [ "`categories`", "Categories are chosen pre-defined categorizations for your record. These are often found on weblogs." ] 
+        - [ "`grouping`", "Grouping is like categories but it is - by definition - more strict. When a grouping applies to a certain record, that record should be viewed as a part of the other records with the same grouping." ]
     links: { "Taxonomies in the docs": "http://bolt-docs.localhost/taxonomies"}
     add_separator: true
 
