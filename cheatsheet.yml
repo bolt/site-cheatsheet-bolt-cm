@@ -261,14 +261,14 @@ twigfunctions:
     title: Functions in Twig
     table:
         - [ 'Name', 'Function' ]
-        - [ '`dump(var)`', 'Print a nicely formatted dump of the contents of \'var\'.' ]
+        - [ '`dump(var)`', "Print a nicely formatted dump of the contents of \'var\'." ]
         - [ '`backtrace()`', 'Print a formatted dump of the backtrace stack, with the "followed path" through the code.' ]
-        - [ '`excerpt(var, length) *`', 'Create a short excerpt from `var`, without HTML formatting, restricted by `length` characters. `var` can be a \'record\' object, a single value from a \'record\' or a regular string.' ]
+        - [ '`excerpt(var, length) *`', "Create a short excerpt from `var`, without HTML formatting, restricted by `length` characters. `var` can be a \'record\' object, a single value from a \'record\' or a regular string." ]
         - [ '`markdown() *`', 'Parse a given string as Markdown. ' ]
         - [ '`current() *`', 'Checks if a given record corresponds to the page being shown in the browser.' ]
         - [ '`htmllang`', 'Returns the language value for in tags where the language attribute is required' ]
         - [ '`pager`', 'Output a simple pager, for paginated listing pages.' ]
-        - [ '`debugbar`', 'Switch the debugbar \'on\' or \'off\'.' ]
+        - [ '`debugbar`', "Switch the debugbar \'on\' or \'off\'." ]
         - [ '`ismobileclient`', 'Check if the current page is viewed on a mobile device' ]
         - [ '`menu`', 'Output a menu. See the section on [menus](#menus). ' ]
         - [ '`isallowed($what, $content)`', 'Check if a certain action is allowed for the current user (and possibly content item)' ]
@@ -291,10 +291,10 @@ twigfilters:
         - [ 'Name', 'Function' ]
         - [ '`localdate(date)`', 'Returns the date and time in a particular format. Takes the locale into account. See [`strftime()`](http://nl3.php.net/strftime) for fomatting options ' ]
         - [ '`twig(string)`', 'Formats the given string as Twig in HTML' ]
-        - [ '`ucfirst(string)`', 'Make a string\'s first character uppercase' ]
+        - [ '`ucfirst(string)`', "Make a string\'s first character uppercase." ]
         - [ '`slug(string)`', "Return the 'sluggified' version of a string: 'Lørüm Ipsum' -> 'lorum-ipsum'" ]
         - [ '`safestring(string)`', "Return a 'safe string' version of a given string: 'Lørüm Ipsum' -> 'lorum ipsum'" ]
-        - [ '`order(array, key)`', 'Order an array, based on the given 'key'' ]
+        - [ '`order(array, key)`', "Order an array, based on the given 'key'." ]
         - [ '`json_decode`', 'Leniently decode a serialized compound data structure to an array / object. Note: `json_encode` does the opposite, and is built in, in Twig.' ]
 
 twigtests:
