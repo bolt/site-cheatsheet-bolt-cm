@@ -4,3 +4,5 @@ vendor/
 .sass-cache/
 bower_components/
 node_modules/
+
+*.map
