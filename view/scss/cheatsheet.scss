@@ -92,6 +92,24 @@ a {
         border: 0;
     }
 
+    mark {
+        background-color: transparent;
+        color: #C22;
+        font-size: 125%;
+    }
+
+    .tip {
+        padding: 3px;
+        color: #A73;
+        background-color: #FCF8E3;
+        border: 1px solid #F7EAD1;
+    }
+    
+    .tip p::before { 
+        content: "TIP: ";
+        font-weight: bold;
+    }
+
     table {
         width: 100%;
         border: 0;
