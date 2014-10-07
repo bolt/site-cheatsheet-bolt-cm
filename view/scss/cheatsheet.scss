@@ -34,9 +34,11 @@ a {
     margin-bottom: 8px;
 
     .name h1 {
-        font-weight: bold;
+        font-weight: normal;
+        font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
         color: #FFF;
         margin-left: 12px;
+        font-size: 20px;
     }
 
 }
@@ -66,6 +68,7 @@ a {
             border: 0;
             color: #DDD;
             padding: 1px 4px;
+            font-family: "Courier";
             background-color: rgba(0, 0, 0, 0.3); 
         }        
 
