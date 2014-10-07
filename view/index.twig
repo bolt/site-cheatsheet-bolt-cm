@@ -62,13 +62,15 @@
     <div class="small-6 medium-3 large-{{block.width|default('2')}} columns">
         <div class="panel">
 
-            <header>
-                {% set title = block.title|markdown|replace({'<p>': '', '</p>': ''}) %} 
-                <h2 id="{{ block.title|slug }}">
-                    {{ title|raw }}
-                    <a href="#{{ block.title|slug}}" class="anchor">&para;</a>
-                </h2>
-            </header>
+            {% if block.title %}
+                <header>
+                    {% set title = block.title|markdown|replace({'<p>': '', '</p>': ''}) %} 
+                    <h2 id="{{ block.title|slug }}">
+                        {{ title|raw }}
+                        <a href="#{{ block.title|slug}}" class="anchor">&para;</a>
+                    </h2>
+                </header>
+            {% endif %}
 
             {# prefix #}
             {% if block.prefix %}{{ block.prefix|markdown }}{% endif %}
@@ -81,6 +83,12 @@
 
             {# table two #}
             {{ macro.table(block.table2, block.table_linear|default(false)) }}
+
+            {# tip #}
+            {% if block.tip %}
+                <div class="tip"> {{ block.tip|markdown }}</div>
+            {% endif %}
+
 
             {# links #}
             {% if block.links %}
