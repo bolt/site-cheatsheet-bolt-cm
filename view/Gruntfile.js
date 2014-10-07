@@ -23,12 +23,36 @@ module.exports = function(grunt) {
         files: 'scss/**/*.scss',
         tasks: ['sass']
       }
-    }
+    },
+
+    concat: {
+        js: {
+            options: {
+                separator: '\n/**********************************************************************************************************************/\n\n',
+                banner: "/**\n" +
+                        " * These are Bolt's COMPILED JS files!\n" +
+                        " * Do not edit these files, because all changes will be lost.\n" +
+                        " * You can edit files in <js/src/*.js> and run 'grunt' to generate this file.\n" +
+                        " */\n\n",
+                sourceMap: true,
+                sourceMapStyle: 'link'
+            },
+            nonull: true,
+            src: [
+                'js/src/jquery-2.1.1.min.js',
+                'js/src/packery.pkgd.min.js',
+                'js/src/jquery.animate-colors-min.js',
+                'bower_components/foundation/js/foundation/foundation.js',
+                'bower_components/foundation/js/foundation/foundation.topbar.js',
+                'js/src/cheatsheet.js'              
+            ],
+            dest: 'js/cheatsheet.js'
+        }
+    },
+
   });
 
-  grunt.loadNpmTasks('grunt-contrib-sass');
-  grunt.loadNpmTasks('grunt-contrib-watch');
 
-  grunt.registerTask('build', ['sass']);
-  grunt.registerTask('default', ['build','watch']);
+  require('load-grunt-tasks')(grunt);
+  grunt.registerTask('default', ['sass', 'concat:js', 'watch']);
 }
