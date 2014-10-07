@@ -393,7 +393,6 @@ twigtests:
         - [ 'Name', 'Function' ]
         - [ '`testjson`', 'Test whether a passed string contains valid JSON' ]
         - [ '`available`', 'Test whether a given function, filter or test is available in Twig. ' ]
-    add_separator: true
 
 twigdefaulttests:
     title: Default tests in Twig
@@ -410,6 +409,7 @@ twigdefaulttests:
         <a href="http://twig.sensiolabs.org/doc/tests/null.html">null</a>,
         <a href="http://twig.sensiolabs.org/doc/tests/odd.html">odd</a>,
         <a href="http://twig.sensiolabs.org/doc/tests/sameas.html">sameas</a>.   
+    add_separator: true
 
 twigvariables:
     title: Default variables in Twig
