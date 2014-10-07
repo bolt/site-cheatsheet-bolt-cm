@@ -67,7 +67,7 @@ contenttypes:
 
 fielddefinitions:
     title: Field definitions in `contenttypes.yml`
-    prefix: The `fields` option in a contenttpe lists the fields for that contenttype. The available fields are below. See also [Field options](#fieldoptions) 
+    prefix: The `fields` option in a contenttype lists the fields for that contenttype. The available fields are below. See also [Field options](#fieldoptions) 
     table: 
         - [ Key, function ]
         - [ `text`, "Simple text-input, for single-line fields "]
