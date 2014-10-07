@@ -5,6 +5,12 @@
 # http://www.symfony2cheatsheet.com/#templating
 
 
+intro:
+    prefix: |
+        You are reading the official Bolt Cheat sheet. This page contains a wealth of information, packed together in a small package.
+        This document contains information about how the contenttypes and other yml files work, as well 
+    tip: Use `CTRL-F` or `OPTION-F` to quickly search inside the cheat sheet.
+
 themestructure:
     title: Sample theme structure
     prefix: "This is the common structure of a bolt theme. The files are located in `themes/`. Define the theme to be used with the `theme:` setting in the global `config.yml`."
@@ -26,6 +32,11 @@ themestructure:
         - [ `scss/`, "optional folder for Sass source files, to be compiled into CSS." ]
         - [ `config.yml`, optional config file with settings specific to the theme. ]
     links: { "Templates and routing": https://docs.bolt.cm/templates-routes }
+
+templatecascading:
+    title: Template cascading
+    links: { "Automatic template selection": "https://docs.bolt.cm/templates-routes#automatic-template-selection" }
+
 
 contenttypes: 
     title: Contenttypes and `contenttypes.yml`
@@ -187,7 +198,7 @@ twiginclude:
         "Template inheritance": "http://twig.sensiolabs.org/doc/templates.html#template-inheritance"
 
 twigmacro:
-    title: Macros in Twig
+    title: Using macros in Twig
     prefix: |
         Macros in Twig can be thought of as functions in PHP or Javascript. 
     table:
@@ -226,36 +237,57 @@ twigcontrolfor:
         "For in the Twig docs": "http://twig.sensiolabs.org/doc/tags/for.html"
 
 twigfunctions:
-    title: Functions in Twig
+    title: Bolt functions in Twig
     prefix: |
         Functions in twig look like this: `{{ foo('bar', 1, 2) }}`. A
         function can take zero or more parameters. Basically, a function does
         something, and then returns the result for output or further processing.
     table:
         - [ 'Name', 'Function' ]
-        - [ '`dump(var)`', "Print a nicely formatted dump of the contents of \'var\'." ]
+        - [ '`dump(var)`', "Print a nicely formatted dump of the contents of `var`." ]
         - [ '`backtrace()`', 'Print a formatted dump of the backtrace stack, with the "followed path" through the code.' ]
-        - [ '`excerpt(var, length) *`', "Create a short excerpt from `var`, without HTML formatting, restricted by `length` characters. `var` can be a \'record\' object, a single value from a \'record\' or a regular string." ]
-        - [ '`markdown() *`', 'Parse a given string as Markdown. ' ]
-        - [ '`current() *`', 'Checks if a given record corresponds to the page being shown in the browser.' ]
+        - [ '`excerpt(var, length) `', "Create a short excerpt from `var`, without HTML formatting, restricted by `length` characters. `var` can be a 'record' object, a single value from a 'record' or a regular string.<mark>*<mark>" ]
+        - [ '`markdown() `', 'Parse a given string as Markdown. <mark>*<mark>' ]
+        - [ '`current() `', 'Checks if a given record corresponds to the page being shown in the browser. <mark>*<mark>' ]
         - [ '`htmllang`', 'Returns the language value for in tags where the language attribute is required' ]
         - [ '`pager`', 'Output a simple pager, for paginated listing pages.' ]
-        - [ '`debugbar`', "Switch the debugbar \'on\' or \'off\'." ]
+        - [ '`debugbar`', "Switch the debugbar `on` or `off`. " ]
         - [ '`ismobileclient`', 'Check if the current page is viewed on a mobile device' ]
         - [ '`menu`', 'Output a menu. See the section on [menus](#menus). ' ]
         - [ '`isallowed($what, $content)`', 'Check if a certain action is allowed for the current user (and possibly content item)' ]
-        - [ '`thumbnail(filename, w, h) *`', 'Helper function to make a path to an image thumbnail' ]
-        - [ '`showimage(filename, w, h) *`', 'Helper function to show an image on a rendered page' ]
-        - [ '`image(filename, w, h) *`', 'Helper function to make a path to an image' ]
-        - [ '`popup(filename, w, h) *`', 'Helper function to wrap an image in a Magnific popup HTML tag, with thumbnail' ]
-        - [ '`imageinfo(filename) *`', 'Get an array with the dimensions of an image, together with its aspectratio and some other info' ]
+        - [ '`thumbnail(filename, w, h) `', 'Helper function to make a path to an image thumbnail. <mark>*<mark>' ]
+        - [ '`showimage(filename, w, h) `', 'Helper function to show an image on a rendered page. <mark>*<mark>' ]
+        - [ '`image(filename, w, h) `', 'Helper function to make a path to an image. <mark>*<mark>' ]
+        - [ '`popup(filename, w, h) `', 'Helper function to wrap an image in a Magnific popup HTML tag, with thumbnail. <mark>*<mark>' ]
+        - [ '`imageinfo(filename) `', 'Get an array with the dimensions of an image, together with its aspectratio and some other info. <mark>*<mark>' ]
         - [ '`file_exists(filename)`', 'Check if a file exists' ]
         - [ '`request(para, from)`', 'Return the requested parameter from `$_REQUEST`, `$_GET` or `$_POST`.' ]
-        - [ '`first / last() *`', 'Returns the first item of an array' ]
-        - [ '`shuffle(array) *`', 'Randomly shuffle the contents of a passed array' ]
-        - [ '`__(label) *`', 'Translate a label to the current localisation settings' ]
+        - [ '`first / last() `', 'Returns the first item of an array. <mark>*<mark>' ]
+        - [ '`shuffle(array) `', 'Randomly shuffle the contents of a passed array. <mark>*<mark>' ]
+        - [ '`__(label) `', 'Translate a label to the current localisation settings. <mark>*<mark>' ]
         - [ '`redirect(path)`', 'Redirect the browser to another page.' ]
-    postfix: "Note: `functions()` marked with an '*' can be used as `|filter` as well. "
+    postfix: "Note: `functions()` marked with an '<mark>*</mark>' can be used as `|filter` as well. "
+
+twigdefaultfunctions:
+    title: Default functions in Twig
+    prefix: | 
+        Bolt uses the Twig template engine. As such, all default
+        twig `{{ functions() }}` also work in Bolt. Most of these have a
+        similar meaning in plain PHP or Javascript. The available functions are: 
+        <a href="http://twig.sensiolabs.org/doc/functions/attribute.html">attribute</a>,
+        <a href="http://twig.sensiolabs.org/doc/functions/block.html">block</a>,
+        <a href="http://twig.sensiolabs.org/doc/functions/constant.html">constant</a>,
+        <a href="http://twig.sensiolabs.org/doc/functions/cycle.html">cycle</a>,
+        <a href="http://twig.sensiolabs.org/doc/functions/date.html">date</a>,
+        <a href="http://twig.sensiolabs.org/doc/functions/dump.html">dump</a>,
+        <a href="http://twig.sensiolabs.org/doc/functions/include.html">include</a>,
+        <a href="http://twig.sensiolabs.org/doc/functions/max.html">max</a>,
+        <a href="http://twig.sensiolabs.org/doc/functions/min.html">min</a>,
+        <a href="http://twig.sensiolabs.org/doc/functions/parent.html">parent</a>,
+        <a href="http://twig.sensiolabs.org/doc/functions/random.html">random</a>,
+        <a href="http://twig.sensiolabs.org/doc/functions/range.html">range</a>,
+        <a href="http://twig.sensiolabs.org/doc/functions/source.html">source</a>,
+        <a href="http://twig.sensiolabs.org/doc/functions/template_from_string.html">template_from_string</a>.
 
 
 setcontent: 
@@ -274,9 +306,34 @@ setcontent:
         - [ "`where { datepublish: '<today' }`", "use shortcuts like 'now', 'today', 'tomorrow' for date selection."]
     links: { "{% setcontent %} in the documentation": https://docs.bolt.cm/content-fetching }
 
+twifdefaulttags:
+    title: "Twig default tags"
+    prefix: | 
+        Bolt uses the Twig template engine. As such, all default
+        twig `{% tags %}` also work in Bolt. The available tags are:     
+        <a href="http://twig.sensiolabs.org/doc/tags/autoescape.html">autoescape</a>,
+        <a href="http://twig.sensiolabs.org/doc/tags/block.html">block</a>,
+        <a href="http://twig.sensiolabs.org/doc/tags/do.html">do</a>,
+        <a href="http://twig.sensiolabs.org/doc/tags/embed.html">embed</a>,
+        <a href="http://twig.sensiolabs.org/doc/tags/extends.html">extends</a>,
+        <a href="http://twig.sensiolabs.org/doc/tags/filter.html">filter</a>,
+        <a href="http://twig.sensiolabs.org/doc/tags/flush.html">flush</a>,
+        <a href="http://twig.sensiolabs.org/doc/tags/for.html">for</a>,
+        <a href="http://twig.sensiolabs.org/doc/tags/from.html">from</a>,
+        <a href="http://twig.sensiolabs.org/doc/tags/if.html">if</a>,
+        <a href="http://twig.sensiolabs.org/doc/tags/import.html">import</a>,
+        <a href="http://twig.sensiolabs.org/doc/tags/include.html">include</a>,
+        <a href="http://twig.sensiolabs.org/doc/tags/macro.html">macro</a>,
+        <a href="http://twig.sensiolabs.org/doc/tags/sandbox.html">sandbox</a>,
+        <a href="http://twig.sensiolabs.org/doc/tags/set.html">set</a>,
+        <a href="http://twig.sensiolabs.org/doc/tags/spaceless.html">spaceless</a>,
+        <a href="http://twig.sensiolabs.org/doc/tags/use.html">use</a>,
+        <a href="http://twig.sensiolabs.org/doc/tags/verbatim.html">verbatim</a>.
+
+
 
 twigfilters:
-    title: Filters in Twig
+    title: Bolt Filters in Twig
     prefix: | 
         Filters in twig look like this: `{{ 'foo'|bar }}`, and can take
         optional parameters. A filter basically transforms whatever you put into
@@ -292,6 +349,44 @@ twigfilters:
         - [ '`order(array, key)`', "Order an array, based on the given 'key'." ]
         - [ '`json_decode`', 'Leniently decode a serialized compound data structure to an array / object. Note: `json_encode` does the opposite, and is built in, in Twig.' ]
 
+twigdefaultfilters:
+    title: Default filters in Twig
+    prefix: | 
+        Bolt uses the Twig template engine. As such, all default
+        twig `{{ |filters }}` also work in Bolt. Most of these have a
+        similar meaning in plain PHP or Javascript. The available filters are: 
+        <a href="http://twig.sensiolabs.org/doc/filters/abs.html">abs</a>,
+        <a href="http://twig.sensiolabs.org/doc/filters/batch.html">batch</a>,
+        <a href="http://twig.sensiolabs.org/doc/filters/capitalize.html">capitalize</a>,
+        <a href="http://twig.sensiolabs.org/doc/filters/convert_encoding.html">convert_encoding</a>,
+        <a href="http://twig.sensiolabs.org/doc/filters/date.html">date</a>,
+        <a href="http://twig.sensiolabs.org/doc/filters/date_modify.html">date_modify</a>,
+        <a href="http://twig.sensiolabs.org/doc/filters/default.html">default</a>,
+        <a href="http://twig.sensiolabs.org/doc/filters/escape.html">escape</a>,
+        <a href="http://twig.sensiolabs.org/doc/filters/first.html">first</a>,
+        <a href="http://twig.sensiolabs.org/doc/filters/format.html">format</a>,
+        <a href="http://twig.sensiolabs.org/doc/filters/join.html">join</a>,
+        <a href="http://twig.sensiolabs.org/doc/filters/json_encode.html">json_encode</a>,
+        <a href="http://twig.sensiolabs.org/doc/filters/keys.html">keys</a>,
+        <a href="http://twig.sensiolabs.org/doc/filters/last.html">last</a>,
+        <a href="http://twig.sensiolabs.org/doc/filters/length.html">length</a>,
+        <a href="http://twig.sensiolabs.org/doc/filters/lower.html">lower</a>,
+        <a href="http://twig.sensiolabs.org/doc/filters/merge.html">merge</a>,
+        <a href="http://twig.sensiolabs.org/doc/filters/nl2br.html">nl2br</a>,
+        <a href="http://twig.sensiolabs.org/doc/filters/number_format.html">number_format</a>,
+        <a href="http://twig.sensiolabs.org/doc/filters/raw.html">raw</a>,
+        <a href="http://twig.sensiolabs.org/doc/filters/replace.html">replace</a>,
+        <a href="http://twig.sensiolabs.org/doc/filters/reverse.html">reverse</a>,
+        <a href="http://twig.sensiolabs.org/doc/filters/round.html">round</a>,
+        <a href="http://twig.sensiolabs.org/doc/filters/slice.html">slice</a>,
+        <a href="http://twig.sensiolabs.org/doc/filters/sort.html">sort</a>,
+        <a href="http://twig.sensiolabs.org/doc/filters/split.html">split</a>,
+        <a href="http://twig.sensiolabs.org/doc/filters/striptags.html">striptags</a>,
+        <a href="http://twig.sensiolabs.org/doc/filters/title.html">title</a>,
+        <a href="http://twig.sensiolabs.org/doc/filters/trim.html">trim</a>,
+        <a href="http://twig.sensiolabs.org/doc/filters/upper.html">upper</a>,
+        <a href="http://twig.sensiolabs.org/doc/filters/url_encode.html">url_encode</a>.
+
 twigtests:
     title: Twig tests in Bolt
     table: 
@@ -300,6 +395,21 @@ twigtests:
         - [ '`available`', 'Test whether a given function, filter or test is available in Twig. ' ]
     add_separator: true
 
+twigdefaulttests:
+    title: Default tests in Twig
+    prefix: | 
+        Bolt uses the Twig template engine. As such, all default
+        twig `tests` also work in Bolt. Most of these have a
+        similar meaning in plain PHP or Javascript. The available tests are: 
+        <a href="http://twig.sensiolabs.org/doc/tests/constant.html">constant</a>,
+        <a href="http://twig.sensiolabs.org/doc/tests/defined.html">defined</a>,
+        <a href="http://twig.sensiolabs.org/doc/tests/divisibleby.html">divisibleby</a>,
+        <a href="http://twig.sensiolabs.org/doc/tests/empty.html">empty</a>,
+        <a href="http://twig.sensiolabs.org/doc/tests/even.html">even</a>,
+        <a href="http://twig.sensiolabs.org/doc/tests/iterable.html">iterable</a>,
+        <a href="http://twig.sensiolabs.org/doc/tests/null.html">null</a>,
+        <a href="http://twig.sensiolabs.org/doc/tests/odd.html">odd</a>,
+        <a href="http://twig.sensiolabs.org/doc/tests/sameas.html">sameas</a>.   
 
 twigvariables:
     title: Default variables in Twig
@@ -311,7 +421,7 @@ twigvariables:
         - ["`frontend`", "A boolean that's `true`, if we're currently rendering a template in the frontend."]
         - ["`backend`", "A boolean that's `true`, if we're currently rendering a template in the backend."]
         - ["`async`", "A boolean that's `true`, if we're currently rendering a template that's called asynchronously."]
-        - ["`users`", "An assay containing the users in the system. "]
+        - ["`users`", "An array containing the users in the system. "]
         - ["`theme`", "An array, containing the theme-specific settings, as defined in the `config.yml` file in the theme folder."]
         - ["`config`", "An object containing the current configuration. See the block [Config object](#configobject)."]
 
