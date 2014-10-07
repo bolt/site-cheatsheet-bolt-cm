@@ -37,6 +37,7 @@ module.exports = function(grunt) {
                 'js/src/jquery-2.1.1.min.js',
                 'js/src/packery.pkgd.min.js',
                 'js/src/jquery.animate-colors-min.js',
+                'js/src/modernizr.js',
                 'bower_components/foundation/js/foundation/foundation.js',
                 'bower_components/foundation/js/foundation/foundation.topbar.js',
                 'js/src/cheatsheet.js'              
