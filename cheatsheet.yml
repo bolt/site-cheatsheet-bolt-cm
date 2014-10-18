@@ -104,6 +104,7 @@ fieldoptions:
         - [ "`default: ..`", "The default value for a field, if applicable. See below for an example." ]
         - [ "`required: true`", "Use this to make a field required. " ]
         - [ "`readonly: true`", "Use this to make a field readonly. Only works on `float`, `integer` and `text` fields." ]
+        - [ "`index: ..`", "Add a databse index for this field. Use with caution." ]
         - [ "`pattern: ..`", "Use this to validate a field against a certain pattern, using Regular Expression. " ]
         - [ "`allowtwig: true`", "Explicitly allow twig to be used in this field. " ]
         - [ "`info: ..`", "Use for displaying extra information about the field." ]
