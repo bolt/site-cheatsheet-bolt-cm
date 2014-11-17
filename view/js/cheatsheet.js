@@ -1729,7 +1729,7 @@ window.Modernizr = (function( window, document, undefined ) {
   window.Foundation = {
     name : 'Foundation',
 
-    version : '5.4.5',
+    version : '5.4.7',
 
     media_queries : {
       small : S('.foundation-mq-small').css('font-family').replace(/^[\/\\'"]+|(;\s?})+|[\/\\'"]+$/g, ''),
@@ -2084,7 +2084,7 @@ window.Modernizr = (function( window, document, undefined ) {
   Foundation.libs.topbar = {
     name : 'topbar',
 
-    version: '5.4.5',
+    version: '5.4.7',
 
     settings : {
       index : 0,

@@ -12,23 +12,29 @@ $bolt-orange: #DC6A23;
 
 
 $table-bg: #FFF;
-$table-border-color: #FFF;
-$table-even-row-bg: lighten(desaturate($bolt-orange, 20), 35);
-$table-odd-row-bg: #F2F2F2;
-$table-row-padding: 0px;
-$table-row-font-size: 12px;
+//$table-border-color: #FFF;
+$table-border-size: 0px;
+//$table-even-row-bg: lighten(desaturate($bolt-orange, 20), 35);
+//$table-odd-row-bg: #F2F2F2;
+$table-even-row-bg: #F4F3EA;
+$table-odd-row-bg: #fff;
+$table-row-padding: 2px;
+$table-row-font-size: 13px;
 $table-line-height: 1.4;
 
 // Topbar dropdown color. Screw you, Foundation.
-$oil: darken($bolt-blue, 10);
+$oil: $bolt-blue;
 
 @import "foundation";
+
+body {
+    padding-top: 5em !important;
+}
 
 a {
     color: $bolt-blue;
     text-decoration: none;
     border-bottom: 1px solid lighten($bolt-blue, 50);
-
 }
 
 a:hover {
@@ -53,10 +59,9 @@ a:hover {
 
 }
 
-
 .panel {
     background-color: #FFF;
-    border: 1px solid #ccc;
+    border: 1px solid lighten(desaturate($bolt-blue, 8), 8);
     padding: 0 4px 4px;
     margin-bottom: 16px;
     overflow: hidden;
@@ -64,22 +69,23 @@ a:hover {
     header {
         background-color: lighten(desaturate($bolt-blue, 8), 8); 
         margin: 0px -4px 0;
-        padding: 2px 2px 2px;
+        padding: 5px 5px 5px;
     }
 
     h2 {
-        text-align: center;
+        font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        text-align: left;
         font-size: 16px;
-        font-weight: normal;
+        font-weight: bold;
         margin: 0;
         color: #FFF;
 
         code {
             border: 0;
-            color: #DDD;
+            color: #FCF8E3;
             padding: 1px 4px;
-            font-family: "Courier";
-            letter-spacing: -0.5px;
+            font-family: 'Source Code Pro', Courier, "Courier New", monospace;
+            //letter-spacing: -0.5px;
             background-color: rgba(0, 0, 0, 0.15); 
         }        
 
@@ -92,15 +98,17 @@ a:hover {
     }
 
     p {
-        font-size: 13px;
+        font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-size: 14px;
         line-height: 1.4;
         margin: 8px 0;
     }
 
     code {
         padding: 0;
-        font-family: Courier, "Courier New", monospace;
-        letter-spacing: -0.5px;        
+        color: #222;
+        font-family: 'Source Code Pro', Courier, "Courier New", monospace;
+        //letter-spacing: -0.5px;        
         background-color: transparent;
         border: 0;
     }
@@ -129,11 +137,19 @@ a:hover {
         border: 0;
         margin: 0;
         background-color: transparent;
+        border-collapse: collapse;
+        
+    }
+    
+    th {
+        text-transform: uppercase;
     }
 
     td { 
         vertical-align: top;
-        padding: 1px;
+        padding: 5px;
+        border-collapse: collapse;
+        
         p {
             font-size: $table-row-font-size;
             line-height: $table-line-height;
@@ -145,23 +161,38 @@ a:hover {
         white-space: nowrap;
     }
 
-    tr {
-        td {
-            background: $table-odd-row-bg; 
-        }
-    }
+//    tr {
+//        
+//        td {
+//            background: $table-odd-row-bg; 
+//        }
+//    }
 
-    tr {
+    tr {        
         &.even,
         &.alt,
         &:nth-of-type(even) { 
             td {
-                background: $table-even-row-bg; 
+                background: $table-even-row-bg;
+                 border: 0;
             }
+                
         }
+    
     }
-
+    
 }
+
+.readmore {
+    color: $bolt-orange;
+    
+    > a {
+        color: $bolt-orange;
+    }
+    
+}
+
+
 
 @media #{$small-only} {
 
@@ -202,7 +233,32 @@ a:hover {
         }
 
     }
-
-
-
 }
+
+
+//@media print {
+//
+//    .tip {
+//        display: none;
+//    }
+//
+//    table,
+//    .panel {
+//        position: relative !important;
+//        display: inline-block !important;
+//        width: 33% !important;
+//        height: 100%;
+//    }
+//    
+//    table {
+//        margin-bottom: 5em;
+//    }
+//    
+//    td {
+//        word-wrap: break-word;
+//        
+//    }
+//
+//
+//}
+
