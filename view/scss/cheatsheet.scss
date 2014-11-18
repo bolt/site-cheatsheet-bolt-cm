@@ -25,11 +25,24 @@ $table-line-height: 1.4;
 // Topbar dropdown color. Screw you, Foundation.
 $oil: $bolt-blue;
 
+
+// $small-range: (0em, 40em);
+// $medium-range: (40.063em, 64em);
+$medium-range: (40.063em, 66em);
+// $large-range: (64.063em, 90em);
+$large-range: (66.063em, 90em);
+// $xlarge-range: (90.063em, 120em);
+// $xxlarge-range: (120.063em, 99999999em);
+
+
+
 @import "foundation";
 
 body {
     padding-top: 5em !important;
 }
+
+
 
 a {
     color: $bolt-blue;
@@ -106,11 +119,24 @@ a:hover {
 
     code {
         padding: 0;
-        color: #222;
+        color: #000;
         font-family: 'Source Code Pro', Courier, "Courier New", monospace;
-        //letter-spacing: -0.5px;        
+        letter-spacing: -0.5px;
+        font-size: 13px;       
         background-color: transparent;
         border: 0;
+                
+        @media #{$medium-only} {
+            font-size: 13px;
+            color: #000;    
+        }
+        
+        @media #{$large-up} {
+            color: #222;
+            font-size: 11px;     
+        }
+        
+        
     }
 
     mark {
@@ -159,6 +185,11 @@ a:hover {
 
     td:first-child {
         white-space: nowrap;
+    }
+    
+    td + td {
+        white-space: pre-line;
+        
     }
 
 //    tr {
@@ -234,6 +265,12 @@ a:hover {
 
     }
 }
+
+.contain-to-grid + .panels > .small-6:first-child  > .panel:not(.tip) > p {
+    margin: 5px;
+}
+
+
 
 
 //@media print {
