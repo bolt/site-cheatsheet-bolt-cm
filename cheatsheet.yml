@@ -40,12 +40,12 @@ templatecascading:
         If your template is named exactly like the singular_slug or slug for the content 
         type or record it will be automatically used.
     table: 
-        - [ Rules for Records ]
-        - [ "The contenttype has a ‘templateselect field’ and a template is selected for this record." ]
-        - [ "The contenttype definition has a value for `record_template`."] 
-        - [ "Bolt will check if a template with a suited name exists, like `entry.twig` or `page.twig`"]
-        - [ "`record_template` is set in the global `config.yml`" ]
-        - [ "If no other rule matches, Bolt will use a template named `record.twig`" ]
+        - [ "", Rules for Records ]
+        - [ "", "The contenttype has a ‘templateselect field’ and a template is selected for this record." ]
+        - [ "", "The contenttype definition has a value for `record_template`."] 
+        - [ "", "Bolt will check if a template with a suited name exists, like `entry.twig` or `page.twig`"]
+        - [ "", "`record_template` is set in the global `config.yml`" ]
+        - [ "", "If no other rule matches, Bolt will use a template named `record.twig`" ]
     links: { "Automatic template selection": "https://docs.bolt.cm/templates-routes#automatic-template-selection" }
 
 
