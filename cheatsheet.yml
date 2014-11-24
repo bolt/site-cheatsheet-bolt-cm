@@ -35,6 +35,17 @@ themestructure:
 
 templatecascading:
     title: Template cascading
+    prefix: |
+        Bolt has some rules to help you quickly build custom templates for your site. 
+        If your template is named exactly like the singular_slug or slug for the content 
+        type or record it will be automatically used.
+    table: 
+        - [ Rules for Records ]
+        - [ "The contenttype has a ‘templateselect field’ and a template is selected for this record." ]
+        - [ "The contenttype definition has a value for `record_template`."] 
+        - [ "Bolt will check if a template with a suited name exists, like `entry.twig` or `page.twig`"]
+        - [ "`record_template` is set in the global `config.yml`" ]
+        - [ "If no other rule matches, Bolt will use a template named `record.twig`" ]
     links: { "Automatic template selection": "https://docs.bolt.cm/templates-routes#automatic-template-selection" }
 
 
@@ -134,6 +145,17 @@ taxonomies:
 
 menuyml:
     title: Menus and `menu.yml`
+    prefix: | 
+        You can define one or more menus in
+        the file `app/config/menu.yml`, which can then be inserted in your
+        templates using the `{{ menu() }}` tag. 
+    table: 
+        - [ "Example" ] 
+        - [ "`main:`<br>&nbsp;&nbsp;`- label: Home`<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`title: This is the first menu item. Fo shizzle!`<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`path: homepage`<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`class: first`<br>&nbsp;&nbsp;`- label: Second item`<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`path: entry/1`" ]
+    postfix: "Insert the menu in the site, using the `{{ menu() }}` tag. Add a `menu_main.twig` file in your theme folder, replacing 'name' with the name of your menu."
+    table2: 
+        - [ "Example" ] 
+        - [ "`<ul>{% for item in menu %}`<br>&nbsp;&nbsp;`<li>`<br>&nbsp;&nbsp;&nbsp;&nbsp;`<a href='{{ item.link }}'>{{item.label}}</a>`<br>&nbsp;&nbsp;`</li>`<br>`{% endfor %}</ul>`" ]
     links: { "Menus in the docs": "https://docs.bolt.cm/menus"}
 
 permissionsyml:
