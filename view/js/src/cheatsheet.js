@@ -8,6 +8,9 @@ jQuery(function($) {
           gutter: 0
     });
 
+
+    window.setTimeout(function() { $container.packery(); }, 2500);
+
     $(document).foundation();
 
     $('a[href*="#"]').click(function(){
@@ -16,3 +19,4 @@ jQuery(function($) {
     });
 
 });
+
