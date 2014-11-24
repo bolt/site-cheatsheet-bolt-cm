@@ -10,7 +10,6 @@ $bolt-blue: #204460;
 $bolt-light-blue: #39556A;
 $bolt-orange: #DC6A23;
 
-
 $table-bg: #FFF;
 //$table-border-color: #FFF;
 $table-border-size: 0px;
@@ -25,7 +24,6 @@ $table-line-height: 1.4;
 // Topbar dropdown color. Screw you, Foundation.
 $oil: $bolt-blue;
 
-
 // $small-range: (0em, 40em);
 // $medium-range: (40.063em, 64em);
 $medium-range: (40.063em, 66em);
@@ -34,12 +32,10 @@ $large-range: (66.063em, 90em);
 // $xlarge-range: (90.063em, 120em);
 // $xxlarge-range: (120.063em, 99999999em);
 
-
-
 @import "foundation";
 
 body {
-    padding-top: 5em !important;
+    // padding-top: 5em !important;
 }
 
 

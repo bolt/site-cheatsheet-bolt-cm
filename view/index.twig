@@ -28,7 +28,7 @@
     </script>
 </head>
 <body>
-<div class="contain-to-grid fixed">
+
 <nav class="top-bar" data-topbar role="navigation">
   <ul class="title-area">
     <li class="name">
@@ -39,7 +39,7 @@
   </ul>
 
 
-<!--
+{# 
   <section class="top-bar-section">
     <ul class="right">
       <li class="has-dropdown">
@@ -54,9 +54,19 @@
       </li>
     </ul>
   </section>
-  -->
+#} 
+
+
+
   
 </nav>
+
+<div class="row" style="padding: 0 8px 10px;">
+{% for block in cheatsheet if block.title is not empty %}
+    <span class="secondary radius label">
+        <a href="#{{block.title|slug}}">{{ block.title }}</a>
+    </span>
+{% endfor %} 
 </div>
 
 <div class="row panels">
@@ -73,6 +83,8 @@
                         <a href="#{{ block.title|slug}}" class="anchor">&para;</a>
                     </h2>
                 </header>
+                {% else %}
+                {{ loop.index }}
             {% endif %}
 
             {# prefix #}
