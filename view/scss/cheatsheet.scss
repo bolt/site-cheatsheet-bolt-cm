@@ -87,8 +87,14 @@ a:hover {
     border: 1px solid lighten(desaturate($bolt-blue, 8), 8);
     padding: 0 4px 4px;
     margin-bottom: 16px;
-    -webkit-column-break-inside: never;
-    break-inside: never;
+    -webkit-column-break-inside: avoid;
+    break-inside: avoid;
+    page-break-inside: avoid;
+
+    // Adding these two will force blocks to stay together, no breaking.
+    // display: inline-block;
+    // width: 100%;
+    overflow: hidden; 
 
 
     header {
