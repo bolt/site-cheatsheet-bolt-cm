@@ -49,6 +49,21 @@ templatecascading:
         - [ "", "If no other rule matches, Bolt will use a template named `record.twig`" ]
     links: { "Automatic template selection": "https://docs.bolt.cm/templates-routes#automatic-template-selection" }
 
+menuyml:
+    title: Menus and `menu.yml`
+    shorttitle: Menus
+    prefix: | 
+        You can define one or more menus in
+        the file `app/config/menu.yml`, which can then be inserted in your
+        templates using the `{{ menu() }}` tag. 
+    table: 
+        - [ "Example" ] 
+        - [ "`main:`<br>&nbsp;&nbsp;`- label: Home`<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`title: This is the first menu item. Fo shizzle!`<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`path: homepage`<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`class: first`<br>&nbsp;&nbsp;`- label: Second item`<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`path: entry/1`" ]
+    postfix: "Insert the menu in the site, using the `{{ menu() }}` tag. Add a `menu_main.twig` file in your theme folder, replacing 'name' with the name of your menu."
+    table2: 
+        - [ "Example" ] 
+        - [ "`<ul>{% for item in menu %}`<br>&nbsp;&nbsp;`<li>`<br>&nbsp;&nbsp;&nbsp;&nbsp;`<a href='{{ item.link }}'>{{item.label}}</a>`<br>&nbsp;&nbsp;`</li>`<br>`{% endfor %}</ul>`" ]
+    links: { "Menus in the docs": "https://docs.bolt.cm/menus"}
 
 contenttypes: 
     title: Contenttypes and `contenttypes.yml`
@@ -148,21 +163,6 @@ taxonomies:
         - [ "`grouping`", "Grouping is like categories but it is - by definition - more strict. When a grouping applies to a certain record, that record should be viewed as a part of the other records with the same grouping." ]
     links: { "Taxonomies in the docs": "http://bolt-docs.localhost/taxonomies"}
 
-menuyml:
-    title: Menus and `menu.yml`
-    shorttitle: Menus
-    prefix: | 
-        You can define one or more menus in
-        the file `app/config/menu.yml`, which can then be inserted in your
-        templates using the `{{ menu() }}` tag. 
-    table: 
-        - [ "Example" ] 
-        - [ "`main:`<br>&nbsp;&nbsp;`- label: Home`<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`title: This is the first menu item. Fo shizzle!`<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`path: homepage`<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`class: first`<br>&nbsp;&nbsp;`- label: Second item`<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`path: entry/1`" ]
-    postfix: "Insert the menu in the site, using the `{{ menu() }}` tag. Add a `menu_main.twig` file in your theme folder, replacing 'name' with the name of your menu."
-    table2: 
-        - [ "Example" ] 
-        - [ "`<ul>{% for item in menu %}`<br>&nbsp;&nbsp;`<li>`<br>&nbsp;&nbsp;&nbsp;&nbsp;`<a href='{{ item.link }}'>{{item.label}}</a>`<br>&nbsp;&nbsp;`</li>`<br>`{% endfor %}</ul>`" ]
-    links: { "Menus in the docs": "https://docs.bolt.cm/menus"}
 
 permissionsyml:
     title: Permissions and `permissions.yml`
