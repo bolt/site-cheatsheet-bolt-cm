@@ -2530,15 +2530,15 @@ window.Modernizr = (function( window, document, undefined ) {
 
 jQuery(function($) { 
 
-    var $container = $('.panels');
-    // init
-    $container.packery({
-          itemSelector: '.columns',
-          gutter: 0
-    });
+    // var $container = $('.panels');
+    // // init
+    // $container.packery({
+    //       itemSelector: '.columns',
+    //       gutter: 0
+    // });
 
 
-    window.setTimeout(function() { $container.packery(); }, 2500);
+    // window.setTimeout(function() { $container.packery(); }, 2500);
 
     $(document).foundation();
 
