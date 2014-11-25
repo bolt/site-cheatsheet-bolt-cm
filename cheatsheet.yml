@@ -166,11 +166,13 @@ menuyml:
 
 permissionsyml:
     title: Permissions and `permissions.yml`
+    shorttitle: "Permissions"
     links: { "Permissions in the docs": "https://docs.bolt.cm/permissions"}
 
 
 routing:
     title: Routing and `routing.yml`
+    shorttitle: "Routing"
     add_separator: true
     links: { "Routing in the docs": "https://docs.bolt.cm/routing"}
 
@@ -493,12 +495,12 @@ apppath:
         - ["`files`", "`/files/`"]
         - ["`extensions`", "`/extensions/`"]
         - ["`root`", "`/`"]
-        - ["`currenturl`", "`http://example.com/entry/lorum-ipsum`"]
+        - ["`currenturl`", "`http://example.com/`&shy;`entry/lorum-ipsum`"]
         - ["`current`", "`/entry/lorum-ipsum`"]
         - ["`hostname`", "`example.com`"]
         - ["`hosturl`", "`http://example.com`"]
         - ["`canonical`", "`example.com`"]
-        - ["`canonicalurl`", "`http://example.com/entry/lorum-ipsum`"]
+        - ["`canonicalurl`", "`http://example.com/`&shy;`entry/lorum-ipsum`"]
         - ["`protocol`", "`http`"]
         - ["`rooturl`", "`http://example.com/`"]
         - ["`theme`", "`/theme/base-2014/`"]
