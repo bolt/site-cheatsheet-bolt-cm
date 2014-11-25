@@ -64,7 +64,7 @@
 <div class="row" style="padding: 0 8px 10px;">
 {% for block in cheatsheet if block.title is not empty %}
     <span class="secondary radius label">
-        <a href="#{{block.title|slug}}">{{ block.title }}</a>
+        <a href="#{{block.title|slug}}">{{ block.shorttitle|default(block.title) }}</a>
     </span>
 {% endfor %} 
 </div>
