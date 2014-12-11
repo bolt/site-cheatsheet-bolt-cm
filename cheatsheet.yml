@@ -94,7 +94,7 @@ contenttypes:
     links: { "Defining contenttypes in the docs": "https://docs.bolt.cm/v20/content#defining-contenttypes" }
 
 fielddefinitions:
-    title: Field definitions in `contenttypes.yml`
+    title: Fields for contenttypes in `contenttypes.yml`
     shorttitle: Field definitions
     prefix: The `fields` option in a contenttype lists the fields for that contenttype. The available fields are below. See also [Field options](#fieldoptions) 
     table: 
@@ -117,7 +117,7 @@ fielddefinitions:
     links: { "Field definitions in the docs": "https://docs.bolt.cm/v20/content#field-definitions" }
 
 fieldoptions:
-    title: Field options in `contenttypes.yml`
+    title: Field options for contenttypes in `contenttypes.yml`
     shorttitle: Field options
     prefix: Each field in the contenttype is an array with several options. The available options are below. See also [Field definitions](#fielddefinitions) 
     table: 
@@ -167,14 +167,26 @@ taxonomies:
 permissionsyml:
     title: Permissions and `permissions.yml`
     shorttitle: "Permissions"
+    prefix: | 
+        The permissions needed to perform an action are configurable by editing the YAML file `app/config/permissions.yml`. 
+        This can be done either directly, or through Bolt’s back-end UI. By changing the permissions you basically change the way 
+        how people can interact with Bolt, and who is allowed to do what.
     links: { "Permissions in the docs": "https://docs.bolt.cm/permissions"}
 
 
 routing:
     title: Routing and `routing.yml`
     shorttitle: "Routing"
+    prefix: | 
+        Bolt allows you to configure the routing to your needs. This basically
+        means that you can configure Bol to generate and interpret URL's the way
+        you need them to be. There are some caveats with regards to correct
+        canonical URLs, but otherwise you can change it to anything you like.
+        The easiest way to add your own is to follow the examples defined in the
+        distributed routing.yml.dist file. The order of the routes is important
+        because it is a first-come first-serve architecture.
     add_separator: true
-    links: { "Routing in the docs": "https://docs.bolt.cm/routing"}
+    links: { "Routing in the docs": "https://docs.bolt.cm/templates-routes#routing"}
 
 
 
@@ -372,7 +384,7 @@ twigfilters:
     title: Bolt Filters in Twig
     shorttitle: Bolt's Twig filters
     prefix: | 
-        Filters in twig look like this: `{{ 'foo'|bar }}`, and can take
+        Filters in twig look like this: `{{ 'foo'|filter }}`, and can take
         optional parameters. A filter basically transforms whatever you put into
         it, so it can be processed further. Filters can be chained together, for
         example: `{{ record.title|excerpt(20)|lower }}`. 
@@ -382,6 +394,7 @@ twigfilters:
         - [ '`twig(string)`', 'Formats the given string as Twig in HTML' ]
         - [ '`ucfirst(string)`', "Make a string's first character uppercase." ]
         - [ '`slug(string)`', "Return the 'sluggified' version of a string: 'Lørüm Ipsum' -> 'lorum-ipsum'" ]
+        - [ '`shy(string)`', "Add 'soft hyphens' to a string. These normally inivisble hyphens, allow a browser to wrap a string, if it wouldn't fit the layout otherwise." ]
         - [ '`safestring(string)`', "Return a 'safe string' version of a given string: 'Lørüm Ipsum' -> 'lorum ipsum'" ]
         - [ '`order(array, key)`', "Order an array, based on the given 'key'." ]
         - [ '`json_decode`', 'Leniently decode a serialized compound data structure to an array / object. Note: `json_encode` does the opposite, and is built in, in Twig.' ]
