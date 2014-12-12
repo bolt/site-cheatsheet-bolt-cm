@@ -54,7 +54,7 @@ menuyml:
     prefix: | 
         You can define one or more menus in
         the file `app/config/menu.yml`, which can then be inserted in your
-        templates using the `{{ menu() }}` tag. 
+        templates using the `{{ menu() }}` tag.
     table: 
         - [ "Example" ]
         - [ "`main:`<br>&nbsp;&nbsp;`- label: Home`<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`title: This is the first menu item. Fo shizzle!`<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`path: homepage`<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`class: first`<br>&nbsp;&nbsp;`- label: Second item`<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`path: entry/1`" ]
@@ -68,8 +68,8 @@ contenttypes:
     title: Contenttypes and `contenttypes.yml`
     shorttitle: Contenttypes
     prefix: | 
-        The contenttypes in Bolt are defined in the file `app/config/contenttypes.yml`. You can edit 
-        this file directly, or from within  the Bolt interface under 'Settings' > 'Contenttypes'. 
+        The contenttypes in Bolt are defined in the file `app/config/contenttypes.yml`. You can edit
+        this file directly, or from within  the Bolt interface under 'Settings' > 'Contenttypes'.
     table: 
         - [ Key, Function ]
         - [ `name`, "The name of the contenttype, should be plural." ]
@@ -167,7 +167,7 @@ permissionsyml:
     title: Permissions and `permissions.yml`
     shorttitle: "Permissions"
     prefix: | 
-        The permissions needed to perform an action are configurable by editing `app/config/permissions.yml`. 
+        The permissions needed to perform an action are configurable by editing `app/config/permissions.yml`.
         This can be done either directly, or through Bolt’s back-end UI. By changing the permissions you basically change the way 
         how people can interact with Bolt, and who is allowed to do what.
     links: { "Permissions in the docs": "https://docs.bolt.cm/permissions"}
@@ -243,7 +243,7 @@ twigmacro:
     title: Using macros in Twig
     shorttitle: Macros
     prefix: |
-        Macros in Twig can be thought of as functions in PHP or Javascript. 
+        Macros in Twig can be thought of as functions in PHP or Javascript.
     table:
         - ["Syntax", "Explanation"]
         - [ "`{% macro foo(var) %}`<br>&nbsp;&nbsp;&nbsp;&nbsp;`Foo and {{ var }}`<br>`{% endmacro %}`", "Define a macro in '_macros.twig'"]
@@ -251,7 +251,7 @@ twigmacro:
         - [ "`{{ m.foo('bar') }}`", "Call the macro in your template."]
     table_linear: true
     postfix: | 
-        If you've defined the macros in the same file, you need to import them, using `_self`:  
+        If you've defined the macros in the same file, you need to import them, using `_self`:
         `{% import _self as macro %}`
     links:
         "Macro in the Twig docs": "http://twig.sensiolabs.org/doc/tags/macro.html"
@@ -273,7 +273,7 @@ twigcontrolfor:
     title: "The `{% for %}` control structure"
     shorttitle: "{% for %}"
     prefix: |
-        The `for` tag is used to iterate over a hash or array, repeating the same code for each element. 
+        The `for` tag is used to iterate over a hash or array, repeating the same code for each element.
     table: 
         - ["Syntax", "Explanation"]
         - [ "`{% for u in users %}`<br>&nbsp;&nbsp;&nbsp;&nbsp;`<a href='{{ u.email }}'>`<br>&nbsp;&nbsp;&nbsp;&nbsp;`{{ u.name }}</a>`<br>`{% else %}`<br>&nbsp;&nbsp;&nbsp;&nbsp;`No active users.`<br>`{% endfor %}`", "Simple 'for' loop. Note the use of `else` if there are no items."]
@@ -322,7 +322,7 @@ twigdefaultfunctions:
     prefix: | 
         Bolt uses the Twig template engine. As such, all default
         twig `{{ functions() }}` also work in Bolt. Most of these have a
-        similar meaning in plain PHP or Javascript. The available functions are: 
+        similar meaning in plain PHP or Javascript. The available functions are:
         <a href="http://twig.sensiolabs.org/doc/functions/attribute.html">attribute</a>,
         <a href="http://twig.sensiolabs.org/doc/functions/block.html">block</a>,
         <a href="http://twig.sensiolabs.org/doc/functions/constant.html">constant</a>,
@@ -361,7 +361,7 @@ twifdefaulttags:
     shorttitle: Default Twig tags
     prefix: | 
         Bolt uses the Twig template engine. As such, all default
-        twig `{% tags %}` also work in Bolt. The available tags are:     
+        twig `{% tags %}` also work in Bolt. The available tags are:
         <a href="http://twig.sensiolabs.org/doc/tags/autoescape.html">autoescape</a>,
         <a href="http://twig.sensiolabs.org/doc/tags/block.html">block</a>,
         <a href="http://twig.sensiolabs.org/doc/tags/do.html">do</a>,
@@ -453,7 +453,7 @@ twigdefaulttests:
     prefix: | 
         Bolt uses the Twig template engine. As such, all default
         twig `tests` also work in Bolt. Most of these have a
-        similar meaning in plain PHP or Javascript. The available tests are: 
+        similar meaning in plain PHP or Javascript. The available tests are:
         <a href="http://twig.sensiolabs.org/doc/tests/constant.html">constant</a>,
         <a href="http://twig.sensiolabs.org/doc/tests/defined.html">defined</a>,
         <a href="http://twig.sensiolabs.org/doc/tests/divisibleby.html">divisibleby</a>,
@@ -462,7 +462,7 @@ twigdefaulttests:
         <a href="http://twig.sensiolabs.org/doc/tests/iterable.html">iterable</a>,
         <a href="http://twig.sensiolabs.org/doc/tests/null.html">null</a>,
         <a href="http://twig.sensiolabs.org/doc/tests/odd.html">odd</a>,
-        <a href="http://twig.sensiolabs.org/doc/tests/sameas.html">sameas</a>.   
+        <a href="http://twig.sensiolabs.org/doc/tests/sameas.html">sameas</a>.
     add_separator: true
 
 twigvariables:
@@ -536,9 +536,9 @@ apprequest:
     title: "The `app.request` variable."
     shorttitle: "{{ app.request }}"
     prefix: |
-        The `app.request` variable holds all request variables, like those in 
-        `$_GET` and `$_POST`, but also session variables and attributes set by 
-        Bolt itself. Use `{{ app.request.get('foo') }}` to access them. 
+        The `app.request` variable holds all request variables, like those in
+        `$_GET` and `$_POST`, but also session variables and attributes set by
+        Bolt itself. Use `{{ app.request.get('foo') }}` to access them.
     table: 
         - ["Key", "Value" ]
         - [ "`_controller`", "An array with the specifics of the current controller" ]
