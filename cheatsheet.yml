@@ -8,7 +8,7 @@
 intro:
     prefix: |
         You are reading the official Bolt Cheat sheet. This page contains a wealth of information, packed together in a small package.
-        This document contains information about how the contenttypes and other yml files work, as well 
+        This document contains information about how the contenttypes and other yml files work, as well.
     tip: Use `CTRL-F` or `OPTION-F` to quickly search inside the cheat sheet.
 
 themestructure:
@@ -43,7 +43,7 @@ templatecascading:
     table: 
         - [ "", Rules for Records ]
         - [ "", "The contenttype has a ‘templateselect field’ and a template is selected for this record." ]
-        - [ "", "The contenttype definition has a value for `record_template`."] 
+        - [ "", "The contenttype definition has a value for `record_template`."]
         - [ "", "Bolt will check if a template with a suited name exists, like `entry.twig` or `page.twig`"]
         - [ "", "`record_template` is set in the global `config.yml`" ]
         - [ "", "If no other rule matches, Bolt will use a template named `record.twig`" ]
@@ -57,11 +57,11 @@ menuyml:
         the file `app/config/menu.yml`, which can then be inserted in your
         templates using the `{{ menu() }}` tag. 
     table: 
-        - [ "Example" ] 
+        - [ "Example" ]
         - [ "`main:`<br>&nbsp;&nbsp;`- label: Home`<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`title: This is the first menu item. Fo shizzle!`<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`path: homepage`<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`class: first`<br>&nbsp;&nbsp;`- label: Second item`<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`path: entry/1`" ]
     postfix: "Insert the menu in the site, using the `{{ menu() }}` tag. Add a `menu_main.twig` file in your theme folder, replacing 'name' with the name of your menu."
     table2: 
-        - [ "Example" ] 
+        - [ "Example" ]
         - [ "`<ul>{% for item in menu %}`<br>&nbsp;&nbsp;`<li>`<br>&nbsp;&nbsp;&nbsp;&nbsp;`<a href='{{ item.link }}'>{{item.label}}</a>`<br>&nbsp;&nbsp;`</li>`<br>`{% endfor %}</ul>`" ]
     links: { "Menus in the docs": "https://docs.bolt.cm/menus"}
 
@@ -159,7 +159,7 @@ taxonomies:
     table: 
         - [ "Type", "Function" ]
         - [ "`tags`", "Tags are a sort of ‘freeform’ labeling. Each record can have several tags, that do not have to be selected from a predefined list." ]
-        - [ "`categories`", "Categories are chosen pre-defined categorizations for your record. These are often found on weblogs." ] 
+        - [ "`categories`", "Categories are chosen pre-defined categorizations for your record. These are often found on weblogs." ]
         - [ "`grouping`", "Grouping is like categories but it is - by definition - more strict. When a grouping applies to a certain record, that record should be viewed as a part of the other records with the same grouping." ]
     links: { "Taxonomies in the docs": "http://bolt-docs.localhost/taxonomies"}
 
@@ -277,7 +277,7 @@ twigcontrolfor:
         - ["Syntax", "Explanation"]
         - [ "`{% for u in users %}`<br>&nbsp;&nbsp;&nbsp;&nbsp;`<a href='{{ u.email }}'>`<br>&nbsp;&nbsp;&nbsp;&nbsp;`{{ u.name }}</a>`<br>`{% else %}`<br>&nbsp;&nbsp;&nbsp;&nbsp;`No active users.`<br>`{% endfor %}`", "Simple 'for' loop. Note the use of `else` if there are no items."]
         - [ "`{% for u in users if u.active %}`", "You can use 'if' in the 'for' statement."]
-        - [ "`{% for u in users|sort('name') %}`", "Use a filter, for example to sort on `u.name`."]            
+        - [ "`{% for u in users|sort('name') %}`", "Use a filter, for example to sort on `u.name`."]
     table_linear: true
     links:
         "For in the Twig docs": "http://twig.sensiolabs.org/doc/tags/for.html"
@@ -345,11 +345,11 @@ setcontent:
     table:
         - [ Parameter, Function ]
         - [ variable name, The first parameter (before the '=') is always the variable that will contain the result set ]
-        - [ '`contenttype`', The name of the contenttype to fetch records from ] 
-        - [ '`contenttype/latest/10`', get the latest 10 records from `contenttype` ]        
-        - [ '`contenttype/slug`', get the record from `contenttype` with the slug `slug` ]        
-        - [ '`contenttype/123`', get the record from `contenttype` with the id `123` ]   
-        - [ "`where { username: 'bob' }`", "use `where` to define what needs to be fetched."]                             
+        - [ '`contenttype`', The name of the contenttype to fetch records from ]
+        - [ '`contenttype/latest/10`', get the latest 10 records from `contenttype` ]
+        - [ '`contenttype/slug`', get the record from `contenttype` with the slug `slug` ]
+        - [ '`contenttype/123`', get the record from `contenttype` with the id `123` ]
+        - [ "`where { username: 'bob' }`", "use `where` to define what needs to be fetched."]
         - [ "`where { title: '%ipsum%' }`", "use `%` in your `where` statement to use 'LIKE' matching."]
         - [ "`where { tags: 'book || movie' }`", "you can also use taxonomies in your `where`."]
         - [ "`where { datepublish: '<today' }`", "use shortcuts like 'now', 'today', 'tomorrow' for date selection."]
@@ -463,7 +463,7 @@ twigdefaulttests:
         <a href="http://twig.sensiolabs.org/doc/tests/odd.html">odd</a>,
         <a href="http://twig.sensiolabs.org/doc/tests/sameas.html">sameas</a>.   
     add_separator: true
- 
+
 twigvariables:
     title: Default variables in Twig
     shorttitle: Default Twig variables
@@ -544,8 +544,3 @@ apprequest:
         - [ "`_route`", "The name of the (current) matching route. " ]
         - [ "`_route_params`", "Parameters of the currently matching route, if there are any." ]
         - [ "`app`", "The current app object. Usually `Bolt\Application`, unless you're doing something really weird." ]
-
-
-
-
-
