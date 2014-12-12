@@ -8,7 +8,6 @@
 intro:
     prefix: |
         You are reading the official Bolt Cheat sheet. This page contains a wealth of information, packed together in a small package.
-        This document contains information about how the contenttypes and other yml files work, as well.
     tip: Use `CTRL-F` or `OPTION-F` to quickly search inside the cheat sheet.
 
 themestructure:
