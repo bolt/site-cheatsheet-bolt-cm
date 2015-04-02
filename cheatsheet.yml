@@ -138,6 +138,7 @@ fieldoptions:
         - [ "`allowtwig: true`", "Explicitly allow twig to be used in this field. " ]
         - [ "`info: ..`", "Use for displaying extra information about the field." ]
         - [ "`extensions: [ .. ]`", "A list of allowed file extensions for uploading. Used with `file`, `filelist`, `image` and `imagelist`" ]
+        - [ "`upload: [ .. ]`", "A custom path for uploaded files. Used with `file`, `filelist`, `image` and `imagelist`" ]
     links: { "Field definitions in the docs": "https://docs.bolt.cm/contenttypes-and-records#field-definitions" }
 
 relations:
