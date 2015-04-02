@@ -129,6 +129,7 @@ fieldoptions:
         - [ "`label: Foo`", "If omitted, the name of the field will be used as a label in the edit-screen. Replace 'Foo' with the desired label of the field." ]
         - [ "`height: 150px`", "For `html` and `textarea` fields, this will determine the height in the edit-screen." ]
         - [ "`index: true`", "Add a database index for this field, use with caution." ]
+        - [ "`group: Foo`", "Separate this and all subsequent fields (until another group declaration) into a tab with the name 'Foo'." ]
         - [ "`prefix: ..`", "HTML to add before the field. " ]
         - [ "`postfix: ..`", "HTML to add after the field. " ]
         - [ "`default: ..`", "The default value for a field, if applicable. See below for an example." ]
@@ -138,7 +139,7 @@ fieldoptions:
         - [ "`allowtwig: true`", "Explicitly allow twig to be used in this field. " ]
         - [ "`info: ..`", "Use for displaying extra information about the field." ]
         - [ "`extensions: [ .. ]`", "A list of allowed file extensions for uploading. Used with `file`, `filelist`, `image` and `imagelist`" ]
-        - [ "`upload: [ .. ]`", "A custom path for uploaded files. Used with `file`, `filelist`, `image` and `imagelist`" ]
+        - [ "`upload: foo`", "A custom path for uploaded files. Used with `file`, `filelist`, `image` and `imagelist`" ]
     links: { "Field definitions in the docs": "https://docs.bolt.cm/contenttypes-and-records#field-definitions" }
 
 relations:
