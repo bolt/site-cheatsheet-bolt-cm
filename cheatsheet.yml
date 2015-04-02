@@ -129,7 +129,7 @@ fieldoptions:
         - [ "`label: Foo`", "If omitted, the name of the field will be used as a label in the edit-screen. Replace 'Foo' with the desired label of the field." ]
         - [ "`height: 150px`", "For `html` and `textarea` fields, this will determine the height in the edit-screen." ]
         - [ "`index: true`", "Add a database index for this field, use with caution." ]
-        - [ "`group: Foo`", "Separate this and all subsequent fields (until another group declaration) into a tab with the name 'Foo'." ]
+        - [ "`group: Foo`", "Separate this and all subsequent fields (until another group declaration) into a tab with the name 'Foo'. Replace 'Foo' with the desired label of the tab." ]
         - [ "`prefix: ..`", "HTML to add before the field. " ]
         - [ "`postfix: ..`", "HTML to add after the field. " ]
         - [ "`default: ..`", "The default value for a field, if applicable. See below for an example." ]
