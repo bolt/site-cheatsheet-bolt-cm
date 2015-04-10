@@ -111,7 +111,7 @@ fielddefinitions:
         - [ `geolocation`, "A set of fields for easy selection of a geolocation (latitude/longitude). "]
         - [ `date`, "Datepicker widget, to set/select a date. "]
         - [ `datetime`, "Similar to the `date` field, but adds an additional field for time. "]
-        - [ `integer`, "A field to integer. "]
+        - [ `integer`, "A field to store integers. "]
         - [ `float`, "A field to store (floating point) numbers. "]
     links: { "Field definitions in the docs": "https://docs.bolt.cm/contenttypes-and-records#field-definitions" }
 
