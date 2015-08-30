@@ -2,7 +2,7 @@
 
 require_once './vendor/autoload.php';
 
-$version = "2.2.6";
+$version = "2.2.9";
 
 use Symfony\Component\Yaml\Parser;
 
