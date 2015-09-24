@@ -2,7 +2,7 @@
 
 require_once './vendor/autoload.php';
 
-$version = "2.2.9";
+$version = "2.2.11";
 
 use Symfony\Component\Yaml\Parser;
 
@@ -11,7 +11,7 @@ $cheatsheet = $yaml->parse(file_get_contents('cheatsheet.yml'));
 
 $loader = new Twig_Loader_Filesystem('./view');
 $twig = new Twig_Environment($loader, array(
-/*    'cache' => './cache', */
+  'cache' => './cache', 
 ));
 
 // Add Dumper function to twig. 
