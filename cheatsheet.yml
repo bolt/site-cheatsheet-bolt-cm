@@ -89,6 +89,7 @@ contenttypes:
         - [ `show_in_menu` ,"(optional) When set to `false` the contenttype will not appear in the normal sidebar menu, but instead under an option called 'Other contenttypes'" ]
         - [ `default_status` ,"(optional) The default status for new records in this contenttype, i.e. `published`, `held`, `draft` or `timed`." ]
         - [ `searchable` ,"(optional) A boolean value to determine whether this contenttype should show up in search results. " ]
+        - [ `viewless` ,"(optional) A boolean value to determine whether this contenttype should have routing or not. " ]
         - [ `icon_many` ,"(optional) A [Font Awesome](http://fortawesome.github.io/Font-Awesome/) icon to be used in the sidebar for this contenttype. For example: `fa:cubes`" ]
         - [ `icon_one` ,"(optional) A [Font Awesome](http://fortawesome.github.io/Font-Awesome/) icon to be used in the sidebar for a single record of this contenttype. For example: `fa:cube`." ]
     links: { "Defining contenttypes in the docs": "https://docs.bolt.cm/contenttypes-and-records#defining-contenttypes" }
