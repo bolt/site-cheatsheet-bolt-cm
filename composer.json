@@ -5,11 +5,12 @@
     "keywords": ["Bolt", "Cheatsheet", "Docs", "Documentation", "CMS", "Silex", "PHP", "Symfony"],
     "license": "MIT",
     "require": {
-        "twig/twig": ">=1.8,<2.0-dev",
-        "symfony/yaml": "2.6.*",
+        "cocur/slugify" : "~1.0",
+        "erusev/parsedown-extra" : "~0.2",
         "erusev/parsedown-extra": "dev-master",
-        "bolt/dumper": "dev-master",
-        "jbroadway/urlify": "dev-master"
+        "symfony/var-dumper" : "^2.7",
+        "symfony/yaml": "^2.7",
+        "twig/twig" : "^1.18"
     },
     "minimum-stability": "beta",
     "config": {
