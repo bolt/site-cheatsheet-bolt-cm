@@ -14,7 +14,7 @@ themestructure:
     title: Sample theme structure
     shorttitle: Theme structure
     prefix: "This is the common structure of a Bolt theme. The files are located in `themes/`. Define the theme to be used with the `theme:` setting in the global `config.yml`."
-    table: 
+    table:
         - [ Filename, Function ]
         - [ `index.twig`, "Homepage or root of the site, i.e. `/`" ]
         - [ `listing.twig`, "listing page for overview of pages, entries or listings per category or search results, e.g. `/entries`, `/tags/movies`, `/search?search=lorem`" ]
@@ -36,10 +36,10 @@ themestructure:
 templatecascading:
     title: Template cascading
     prefix: |
-        Bolt has some rules to help you quickly build custom templates for your site. 
-        If your template is named exactly like the `singular_slug` or `slug` for the content 
+        Bolt has some rules to help you quickly build custom templates for your site.
+        If your template is named exactly like the `singular_slug` or `slug` for the content
         type or record it will automatically be used.
-    table: 
+    table:
         - [ "", Rules for Records ]
         - [ "", "The contenttype has a ‘templateselect field’ and a template is selected for this record." ]
         - [ "", "The contenttype definition has a value for `record_template`."]
@@ -51,26 +51,26 @@ templatecascading:
 menuyml:
     title: Menus and `menu.yml`
     shorttitle: Menus
-    prefix: | 
+    prefix: |
         You can define one or more menus in
         the file `app/config/menu.yml`, which can then be inserted in your
         templates using the `{{ menu() }}` tag.
-    table: 
+    table:
         - [ "Example" ]
         - [ "`main:`<br>&nbsp;&nbsp;`- label: Home`<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`title: This is the first menu item. Fo shizzle!`<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`path: homepage`<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`class: first`<br>&nbsp;&nbsp;`- label: Second item`<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`path: entry/1`" ]
     postfix: "Insert the menu in the site, using the `{{ menu() }}` tag. Add a `menu_main.twig` file in your theme folder, replacing 'name' with the name of your menu."
-    table2: 
+    table2:
         - [ "Example" ]
         - [ "`<ul>{% for item in menu %}`<br>&nbsp;&nbsp;`<li>`<br>&nbsp;&nbsp;&nbsp;&nbsp;`<a href='{{ item.link }}'>{{item.label}}</a>`<br>&nbsp;&nbsp;`</li>`<br>`{% endfor %}</ul>`" ]
     links: { "Menus in the docs": "https://docs.bolt.cm/menus"}
 
-contenttypes: 
+contenttypes:
     title: Contenttypes and `contenttypes.yml`
     shorttitle: Contenttypes
-    prefix: | 
+    prefix: |
         The contenttypes in Bolt are defined in the file `app/config/contenttypes.yml`. You can edit
         this file directly, or from within  the Bolt interface under 'Settings' > 'Contenttypes'.
-    table: 
+    table:
         - [ Key, Function ]
         - [ `name`, "The name of the contenttype, should be plural." ]
         - [ `singular_name`, "The name of one record in the contenttype. Should be singular. " ]
@@ -97,8 +97,8 @@ contenttypes:
 fielddefinitions:
     title: Fields for contenttypes in `contenttypes.yml`
     shorttitle: Field definitions
-    prefix: The `fields` option in a contenttype lists the fields for that contenttype. The available fields are below. See also [Field options](#field-options-contenttypes-contenttypesyml) 
-    table: 
+    prefix: The `fields` option in a contenttype lists the fields for that contenttype. The available fields are below. See also [Field options](#field-options-contenttypes-contenttypesyml)
+    table:
         - [ Key, function ]
         - [ `text`, "Simple text-input, for single-line fields "]
         - [ `slug`, "The slug is a required field, but you can include it in the fields list to customize it. "]
@@ -120,8 +120,8 @@ fielddefinitions:
 fieldoptions:
     title: Field options for contenttypes in `contenttypes.yml`
     shorttitle: Field options
-    prefix: Each field in the contenttype is an array with several options. The available options are below. See also [Field definitions](#fields-contenttypes-contenttypesyml) 
-    table: 
+    prefix: Each field in the contenttype is an array with several options. The available options are below. See also [Field definitions](#fields-contenttypes-contenttypesyml)
+    table:
         - [ Key, function ]
         - [ "`class: large`", "Will show the field in a larger font, for `text` fields." ]
         - [ "`class: wide`", "Will show the field extra wide, for filling out the column. `text` fields only." ]
@@ -147,7 +147,7 @@ relations:
     title: Relationships
     prefix: |
         You can use relationships between records by adding a relation to a contenttype. Relationships are always bidirectional.
-    table: 
+    table:
         - [ "Example" ]
         - [ "`relations:`<br>&nbsp;&nbsp;&nbsp;&nbsp;`pages:`<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`multiple: false`<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`label: Select a page`<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`order: -id`"]  
     postfix: |
@@ -159,7 +159,7 @@ taxonomies:
     shorttitle: Taxonomies
     prefix: |
         You can create taxonomies by adding them to `taxonomy.yml`. You can define your own taxonomies, and choose how they behave.
-    table: 
+    table:
         - [ "Type", "Function" ]
         - [ "`tags`", "Tags are a sort of ‘freeform’ labeling. Each record can have several tags, that do not have to be selected from a predefined list." ]
         - [ "`categories`", "Categories are chosen pre-defined categorizations for your record. These are often found on weblogs." ]
@@ -170,9 +170,9 @@ taxonomies:
 permissionsyml:
     title: Permissions and `permissions.yml`
     shorttitle: "Permissions"
-    prefix: | 
+    prefix: |
         The permissions needed to perform an action are configurable by editing `app/config/permissions.yml`.
-        This can be done either directly, or through Bolt’s back-end UI. By changing the permissions you basically change the way 
+        This can be done either directly, or through Bolt’s back-end UI. By changing the permissions you basically change the way
         how people can interact with Bolt, and who is allowed to do what.
     links: { "Permissions in the docs": "https://docs.bolt.cm/permissions"}
 
@@ -180,7 +180,7 @@ permissionsyml:
 routing:
     title: Routing and `routing.yml`
     shorttitle: "Routing"
-    prefix: | 
+    prefix: |
         Bolt allows you to configure the routing to your needs. This basically
         means that you can configure Bolt to generate and interpret URLs the way
         you need them to be. There are some caveats with regards to correct
@@ -195,10 +195,10 @@ routing:
 
 # Twig sections
 
-twig: 
+twig:
     title: Twig
     prefix: "The templates in Bolt are written in [Twig](http://twig.sensiolabs.org/). This is a fast, flexible and elegant templating language."
-    table: 
+    table:
         - [ "Syntax", "Meaning"]
         - [ "`{{ … }}`", "Output someting, like 'echo' or 'print'."]
         - [ "`{% … %}`", "Do someting, like 'for', 'if' or 'setcontent'."]
@@ -209,10 +209,10 @@ twig:
         - [ "`['foo', 'bar', 5]`", "An array containing three elements." ]
         - [ "`{'a': 'foo', 'b': 5}`", "A hash is a list of keys and value-pairs, separated by a comma." ]
 
-twigsettingvariables: 
+twigsettingvariables:
     title: Setting variables
     # prefix: "The templates in Bolt are written in Twig. This is a fast, flexible and elegant templating language."
-    table: 
+    table:
         - [ "Syntax", "Meaning"]
         - [ "`{% set foo = 'bar' %}`", "Set the variable `foo` to contain the string `bar`."]
         - [ "`{% set foo = [1, 2, 3] %}`", "You can set variables to contain literals, arrays, hashes, etc."]
@@ -223,23 +223,23 @@ twigsettingvariables:
 twiginclude:
     title: Including other templates
     shorttitle: Template includes
-    prefix: | 
+    prefix: |
         Use this to include another Twig template in the current template.
         Twig parses the template like any other template, so you can use any
         tags in your included template that you would use in the ‘main’
         template. You can also use `include` inside the included templates."
-    table: 
+    table:
         - [ "Syntax", "Meaning"]
         - [ "`{% include '_header.twig' %}`", "Includes the file `_header.twig`."]
         - [ "`{% set v = {'title': 'Hello!'} %}`<br>`{% include '_header.twig' with v %}`", "You can set variables to contain literals, arrays, hashes, etc."]
         - [ "`{% set foo = 'Hello ' ~ name %}`<br>`{% set foo = foo|merge(bar) %}`", "Use set to append strings or merge arrays."]
     table_linear: true
-    postfix: | 
+    postfix: |
         An alternative to using 'include', is to set up your templates using Template
         Inheritance. This is a method of defining a base template, and then expand it in
         more detail in the templates that extend this base template. See the section on
         [Template inheritance](http://twig.sensiolabs.org/doc/templates.html#template-inheritance) on the twig website.
-    links: 
+    links:
         "Including other templates": "http://twig.sensiolabs.org/doc/templates.html#including-other-templates"
         "Template inheritance": "http://twig.sensiolabs.org/doc/templates.html#template-inheritance"
 
@@ -254,7 +254,7 @@ twigmacro:
         - [ "`{% import '_macros.twig' as m %}`", "Import the macros in your template."]
         - [ "`{{ m.foo('bar') }}`", "Call the macro in your template."]
     table_linear: true
-    postfix: | 
+    postfix: |
         If you've defined the macros in the same file, you need to import them, using `_self`:
         `{% import _self as macro %}`
     links:
@@ -264,8 +264,8 @@ twigcontrolif:
     title: "The `{% if %}` control structure"
     shorttitle: "{% if %}"
     prefix: |
-        The `if` tag is used to check if 'something' (an expression) is `true` or `false`, and act accordingly. 
-    table: 
+        The `if` tag is used to check if 'something' (an expression) is `true` or `false`, and act accordingly.
+    table:
         - ["Syntax", "Explanation"]
         - [ "`{% if record.title %}`<br>&nbsp;&nbsp;&nbsp;&nbsp;`{{ record.title }}`<br>`{% else %}`<br>&nbsp;&nbsp;&nbsp;&nbsp;`No title given.`<br>`{% endif %}`", "Simple 'if' statement."]
         - [ "`{% if user.name == 'bob' %}`<br>&nbsp;&nbsp;&nbsp;&nbsp;`Oh, it's you…`<br>`{% else %}`<br>&nbsp;&nbsp;&nbsp;&nbsp;`Well, hello {{ user.name }}`<br>`{% endif %}`", "'if' statement, with an `else` clause."]
@@ -278,7 +278,7 @@ twigcontrolfor:
     shorttitle: "{% for %}"
     prefix: |
         The `for` tag is used to iterate over a hash or array, repeating the same code for each element.
-    table: 
+    table:
         - ["Syntax", "Explanation"]
         - [ "`{% for u in users %}`<br>&nbsp;&nbsp;&nbsp;&nbsp;`<a href='{{ u.email }}'>`<br>&nbsp;&nbsp;&nbsp;&nbsp;`{{ u.name }}</a>`<br>`{% else %}`<br>&nbsp;&nbsp;&nbsp;&nbsp;`No active users.`<br>`{% endfor %}`", "Simple 'for' loop. Note the use of `else` if there are no items."]
         - [ "`{% for u in users if u.active %}`", "You can use 'if' in the 'for' statement."]
@@ -323,7 +323,7 @@ twigfunctions:
 twigdefaultfunctions:
     title: Default functions in Twig
     shorttitle: Default Twig functions
-    prefix: | 
+    prefix: |
         Bolt uses the Twig template engine. As such, all default
         twig `{{ functions() }}` also work in Bolt. Most of these have a
         similar meaning in plain PHP or Javascript. The available functions are:
@@ -343,7 +343,7 @@ twigdefaultfunctions:
         <a href="http://twig.sensiolabs.org/doc/functions/template_from_string.html">template_from_string</a>.
 
 
-setcontent: 
+setcontent:
     title: "The `{% setcontent %}` tag"
     shorttitle: "{% setcontent %}"
     prefix: "The `{% setcontent %}` tag is one of the most important tags in Bolt, because it allows you to get content in any location to use however you need."
@@ -363,7 +363,7 @@ setcontent:
 twifdefaulttags:
     title: "Twig default tags"
     shorttitle: Default Twig tags
-    prefix: | 
+    prefix: |
         Bolt uses the Twig template engine. As such, all default
         twig `{% tags %}` also work in Bolt. The available tags are:
         <a href="http://twig.sensiolabs.org/doc/tags/autoescape.html">autoescape</a>,
@@ -388,11 +388,11 @@ twifdefaulttags:
 twigfilters:
     title: Bolt Filters in Twig
     shorttitle: Bolt's Twig filters
-    prefix: | 
+    prefix: |
         Filters in twig look like this: `{{ 'foo'|filter }}`, and can take
         optional parameters. A filter basically transforms whatever you put into
         it, so it can be processed further. Filters can be chained together, for
-        example: `{{ record.title|excerpt(20)|lower }}`. 
+        example: `{{ record.title|excerpt(20)|lower }}`.
     table:
         - [ 'Name', 'Function' ]
         - [ '`localdate(date)`', 'Returns the date and time in a particular format. Takes the locale into account. See [`strftime()`](http://nl3.php.net/strftime) for fomatting options ' ]
@@ -407,10 +407,10 @@ twigfilters:
 twigdefaultfilters:
     title: Default filters in Twig
     shorttitle: Default Twig filters
-    prefix: | 
+    prefix: |
         Bolt uses the Twig template engine. As such, all default
         twig `{{ |filters }}` also work in Bolt. Most of these have a
-        similar meaning in plain PHP or Javascript. The available filters are: 
+        similar meaning in plain PHP or Javascript. The available filters are:
         <a href="http://twig.sensiolabs.org/doc/filters/abs.html">abs</a>,
         <a href="http://twig.sensiolabs.org/doc/filters/batch.html">batch</a>,
         <a href="http://twig.sensiolabs.org/doc/filters/capitalize.html">capitalize</a>,
@@ -446,7 +446,7 @@ twigdefaultfilters:
 twigtests:
     title: Twig tests in Bolt
     shorttitle: Bolt's Twig tests
-    table: 
+    table:
         - [ 'Name', 'Function' ]
         - [ '`testjson`', 'Test whether a passed string contains valid JSON' ]
 #        - [ '`available`', 'Test whether a given function, filter or test is available in Twig. ' ]
@@ -454,7 +454,7 @@ twigtests:
 twigdefaulttests:
     title: Default tests in Twig
     shorttitle: Default Twig tests
-    prefix: | 
+    prefix: |
         Bolt uses the Twig template engine. As such, all default
         twig `tests` also work in Bolt. Most of these have a
         similar meaning in plain PHP or Javascript. The available tests are:
@@ -472,7 +472,7 @@ twigdefaulttests:
 twigvariables:
     title: Default variables in Twig
     shorttitle: Default Twig variables
-    table: 
+    table:
         - ["Key", "Value"]
         - ["`user`", "An array containing the specifics of the currently logged on user. Empty if the user is not logged on."]
         - ["`bolt_name`", "A string containing the current name of the Bolt version." ]
@@ -484,27 +484,27 @@ twigvariables:
         - ["`theme`", "An array, containing the theme-specific settings, as defined in the `config.yml` file in the theme folder."]
         - ["`config`", "An object containing the current configuration. See the block [Config object](#configobject)."]
 
-debug: 
+debug:
     title: "Debugging Bolt"
     shorttitle: Debugging
     prefix: |
         If you’re coding and you want to get a quick look at whatever variable or object you’re trying to manipulate, you can dump its contents to the browser. In templates, use the following:
         The variable can be a normal variable, a single record, multiple records, or other stuff.
-    table: 
+    table:
         - [Code, Function]
         - ["`{{ dump(variable) }}`", Dump 'variable' in the template. ]
-        - ["`\Dumper::dump($variable);`", Dump 'variable' in your code. ]
+        - ["`dump($variable);`", Dump 'variable' in your code. ]
         - ["`{{ backtrace() }}`", "Get a backtrace throught the code to the current point in the execution, in the template." ]
-        - ["`\Dumper::backtrace(10);`", " Get a backtrace throught the code to the current point in the execution, in your code. The optional parameter denotes the maximum depth of the output of the backtrace." ]
+        - ["`dump(debug_backtrace());`", " Get a backtrace throught the code to the current point in the execution, in your code. The optional parameter denotes the maximum depth of the output of the backtrace." ]
     table_linear: true
-    links: { "{{ dump() }} in the documentation": "https://docs.bolt.cm/internals/bolt-internals#-dump-and-dumperdump" }
+    links: { "{{ dump() }} in the documentation": "https://docs.bolt.cm/internals/bolt-internals#dump-and-dump" }
 
 
-apppath: 
+apppath:
     title: "The `paths` variable"
     shorttitle: "{{ paths }}"
     prefix: "To see the current paths use `{{ dump(paths) }}` in a template. Use a specific path like this: `{{ paths.theme }}`. In PHP, these are available as `$this->app['paths']`."
-    table: 
+    table:
         - ["Key", "Value"]
         - ["`app`", "`/app/`"]
         - ["`async`", "`/async/`"]
@@ -536,14 +536,14 @@ apppath:
     links: { "app['paths'] in the docs": "https://docs.bolt.cm/internals/bolt-internals#app8216paths8217" }
 
 
-apprequest: 
+apprequest:
     title: "The `app.request` variable."
     shorttitle: "{{ app.request }}"
     prefix: |
         The `app.request` variable holds all request variables, like those in
         `$_GET` and `$_POST`, but also session variables and attributes set by
         Bolt itself. Use `{{ app.request.get('foo') }}` to access them.
-    table: 
+    table:
         - ["Key", "Value" ]
         - [ "`_controller`", "An array with the specifics of the current controller" ]
         - [ "`_route`", "The name of the (current) matching route. " ]
