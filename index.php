@@ -5,7 +5,7 @@ require_once './vendor/autoload.php';
 use Symfony\Component\Yaml\Parser;
 use Cocur\Slugify\Slugify;
 
-$version = "2.2.15";
+$version = "2.2.16";
 
 $yaml = new Parser();
 $cheatsheet = $yaml->parse(file_get_contents('cheatsheet.yml'));
