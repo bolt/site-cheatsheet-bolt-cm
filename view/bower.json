@@ -20,6 +20,6 @@
     "tests"
   ],
   "dependencies": {
-    "foundation": "~5.4"
+    "foundation-sites": "~6.1"
   }
 }
