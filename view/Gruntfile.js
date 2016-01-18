@@ -12,7 +12,7 @@ module.exports = function(grunt) {
         },
         files: {
           'css/cheatsheet.css': 'scss/cheatsheet.scss'
-        }        
+        }
       }
     },
 
@@ -23,7 +23,7 @@ module.exports = function(grunt) {
         files: 'scss/**/*.scss',
         tasks: ['sass']
       },
-      concat: { 
+      concat: {
         files: 'js/src/*.js',
         tasks: ['concat:js']
       }
@@ -38,12 +38,12 @@ module.exports = function(grunt) {
             },
             nonull: true,
             src: [
-                'js/src/jquery-2.1.1.min.js',
+                'js/src/jquery-2.1.4.min.js',
                 'js/src/jquery.animate-colors-min.js',
                 'js/src/modernizr.js',
                 'bower_components/foundation/js/foundation/foundation.js',
                 'bower_components/foundation/js/foundation/foundation.topbar.js',
-                'js/src/cheatsheet.js'              
+                'js/src/cheatsheet.js'
             ],
             dest: 'js/cheatsheet.js'
         }
