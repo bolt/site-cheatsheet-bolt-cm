@@ -48,37 +48,14 @@
 </head>
 <body>
 
-<nav class="top-bar" data-topbar role="navigation">
-  <ul class="title-area">
-    <li class="name">
-      <h1>Bolt Cheatsheet <span> - for Bolt {{ version }}</span></h1>
-    </li>
-     <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-    <!--<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>-->
+<div class="top-bar">
+  <div class="top-bar-left">
+<ul class="dropdown menu" data-dropdown-menu>
+      <li class="menu-text">Bolt Cheatsheet <span> - for Bolt {{ version }}</span></li>
   </ul>
+  </div>
+</div>
 
-
-{#
-  <section class="top-bar-section">
-    <ul class="right">
-      <li class="has-dropdown">
-        <a href="#">Topics</a>
-        <ul class="dropdown">
-            {% for block in cheatsheet %}
-            <li>
-            <a href="#{{block.title|slug}}">{{ block.title }}</a>
-            </li>
-            {% endfor %}
-        </ul>
-      </li>
-    </ul>
-  </section>
-#}
-
-
-
-
-</nav>
 
 <div class="row labelholder">
 {% for block in cheatsheet if block.title is not empty %}

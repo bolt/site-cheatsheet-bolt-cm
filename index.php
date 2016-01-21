@@ -12,7 +12,7 @@ $cheatsheet = $yaml->parse(file_get_contents('cheatsheet.yml'));
 
 $loader = new Twig_Loader_Filesystem('./view');
 $twig = new Twig_Environment($loader, array(
-  'cache' => './cache',
+  // 'cache' => './cache',
 ));
 
 // Add Dumper function to twig.
