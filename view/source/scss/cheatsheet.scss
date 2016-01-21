@@ -1,11 +1,7 @@
-$base-font-size: 100%;
+@charset 'utf-8';
 
 
-$row-width: 1280px;
-$column-gutter: 16px;
-$total-columns: 6;
-
-// Bolt colors: 
+// Bolt colors:
 $bolt-blue: #204460;
 $bolt-light-blue: #39556A;
 $bolt-orange: #DC6A23;
@@ -26,19 +22,21 @@ $oil: $bolt-blue;
 
 // $small-range: (0em, 40em);
 // $medium-range: (40.063em, 64em);
-$medium-range: (40.063em, 66em);
+// $medium-range: (40.063em, 66em);
 // $large-range: (64.063em, 90em);
-$large-range: (66.063em, 90em);
+// $large-range: (66.063em, 90em);
 // $xlarge-range: (90.063em, 120em);
 // $xxlarge-range: (120.063em, 99999999em);
 
-@import "foundation";
+
+@import 'settings';
+
+@import 'foundation';
+@import 'app';
 
 body {
     // padding-top: 5em !important;
 }
-
-
 
 a {
     color: $bolt-blue;
@@ -52,9 +50,9 @@ a:hover {
     border-bottom: 1px solid $bolt-light-blue;
 }
 
-.top-bar { 
+.top-bar {
 
-    background-color: $bolt-blue; 
+    background-color: $bolt-blue;
 
     margin-bottom: 8px;
 
@@ -77,8 +75,8 @@ a:hover {
     -moz-column-count: 3;
     column-count: 3;
     -webkit-column-width: 320px;
-    -moz-column-width: 320px; 
-    column-width: 320px;    
+    -moz-column-width: 320px;
+    column-width: 320px;
     padding: 0 12px;
 }
 
@@ -94,11 +92,11 @@ a:hover {
     // Adding these two will force blocks to stay together, no breaking.
     // display: inline-block;
     // width: 100%;
-    overflow: hidden; 
+    overflow: hidden;
 
 
     header {
-        background-color: lighten(desaturate($bolt-blue, 8), 8); 
+        background-color: lighten(desaturate($bolt-blue, 8), 8);
         margin: 0px -4px 0;
         padding: 5px 5px 5px;
     }
@@ -117,8 +115,8 @@ a:hover {
             padding: 1px 4px;
             font-family: 'Source Code Pro', Courier, "Courier New", monospace;
             //letter-spacing: -0.5px;
-            background-color: rgba(0, 0, 0, 0.15); 
-        }        
+            background-color: rgba(0, 0, 0, 0.15);
+        }
 
         a.anchor, a.anchor:hover {
             float: right;
@@ -140,21 +138,21 @@ a:hover {
         color: #000;
         font-family: 'Source Code Pro', Courier, "Courier New", monospace;
         letter-spacing: -0.5px;
-        font-size: 13px;       
+        font-size: 13px;
         background-color: transparent;
         border: 0;
-                
+
         @media #{$medium-only} {
             font-size: 13px;
-            color: #000;    
+            color: #000;
         }
-        
+
         @media #{$large-up} {
             color: #222;
-            font-size: 12px;     
+            font-size: 12px;
         }
-        
-        
+
+
     }
 
     mark {
@@ -170,8 +168,8 @@ a:hover {
         background-color: #FCF8E3;
         border: 1px solid #F7EAD1;
     }
-    
-    .tip p::before { 
+
+    .tip p::before {
         content: "TIP: ";
         font-weight: bold;
     }
@@ -182,63 +180,63 @@ a:hover {
         margin: 0;
         background-color: transparent;
         border-collapse: collapse;
-        
+
     }
-    
+
     th {
         text-transform: uppercase;
     }
 
-    td { 
+    td {
         vertical-align: top;
         padding: 5px;
         border-collapse: collapse;
-        
+
         p {
             font-size: $table-row-font-size;
             line-height: $table-line-height;
             margin: 0;
-        }        
+        }
     }
 
     td:first-child {
         white-space: nowrap;
     }
-    
+
     td + td {
         white-space: pre-line;
-        
+
     }
 
 //    tr {
-//        
+//
 //        td {
-//            background: $table-odd-row-bg; 
+//            background: $table-odd-row-bg;
 //        }
 //    }
 
-    tr {        
+    tr {
         &.even,
         &.alt,
-        &:nth-of-type(even) { 
+        &:nth-of-type(even) {
             td {
                 background: $table-even-row-bg;
                  border: 0;
             }
-                
+
         }
-    
+
     }
-    
+
 }
 
 .readmore {
     color: $bolt-orange;
-    
+
     > a {
         color: $bolt-orange;
     }
-    
+
 }
 
 
@@ -274,15 +272,15 @@ a:hover {
             font-size: 17px;
         }
 
-        p { 
+        p {
             font-size: 14px;
         }
 
-        td { 
+        td {
             p {
                 font-size: $table-row-font-size + 1;
                 line-height: $table-line-height;
-            }        
+            }
         }
 
     }
@@ -307,14 +305,14 @@ a:hover {
 //        width: 33% !important;
 //        height: 100%;
 //    }
-//    
+//
 //    table {
 //        margin-bottom: 5em;
 //    }
-//    
+//
 //    td {
 //        word-wrap: break-word;
-//        
+//
 //    }
 //
 //
