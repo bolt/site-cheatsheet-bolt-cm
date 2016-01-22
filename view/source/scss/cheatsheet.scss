@@ -56,8 +56,8 @@ a:hover {
 
     margin-bottom: 8px;
 
-    .name h1 {
-        font-weight: normal;
+    .title-bar-title {
+        font-weight: bold;
         font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
         color: #FFF;
         margin-left: 12px;
@@ -68,6 +68,15 @@ a:hover {
 
 .labelholder {
     padding: 0px 12px 12px;
+
+    .label.secondary {
+        font-size: 75%;
+        line-height: 90%;
+        background-color: #CCC;
+        border-radius: 4px;
+        margin: 1px 0;
+    }
+
 }
 
 .panels {
@@ -116,6 +125,8 @@ a:hover {
             font-family: 'Source Code Pro', Courier, "Courier New", monospace;
             //letter-spacing: -0.5px;
             background-color: rgba(0, 0, 0, 0.15);
+            font-size: 85%;
+            font-weight: bold;
         }
 
         a.anchor, a.anchor:hover {
@@ -174,7 +185,7 @@ a:hover {
         font-weight: bold;
     }
 
-    table {
+    table, tbody {
         width: 100%;
         border: 0;
         margin: 0;
@@ -185,6 +196,9 @@ a:hover {
 
     th {
         text-transform: uppercase;
+        font-size: 80%;
+        text-align: left;
+        padding: 2px 5px;
     }
 
     td {
