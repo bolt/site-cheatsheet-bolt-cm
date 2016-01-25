@@ -7,7 +7,7 @@
 <head>
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width" />
-	<title>{{ title }} - Bolt documentation </title>
+	<title>{{ config.title }} - Bolt documentation </title>
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,400italic|Source+Code+Pro&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="view/css/cheatsheet.css">
     <script src="view/js/cheatsheet.js"></script>
@@ -51,14 +51,13 @@
 <div class="top-bar">
   <div class="top-bar-left">
     <span class="title-bar-title">
-        Bolt Cheatsheet <span> - for Bolt {{ version }}</span>
+        Bolt Cheatsheet <span> - for Bolt {{ config.version|default('unknown') }}</span>
     </span>
   </div>
 </div>
 
-
 <div class="row labelholder">
-{% for block in cheatsheet if block.title is not empty %}
+{% for block in cheatsheet if block.title %}
     <span class="secondary radius label">
         <a href="#{{block.title|slug}}">{{ block.shorttitle|default(block.title) }}</a>
     </span>
@@ -67,7 +66,7 @@
 
 <div class="row panels">
 
-    {% for block in cheatsheet %}
+    {% for block in cheatsheet|default([]) %}
         <div class="panel">
 
             {% if block.title %}
