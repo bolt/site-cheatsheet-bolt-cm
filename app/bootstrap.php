@@ -9,9 +9,6 @@ use Silex\Provider\HttpFragmentServiceProvider;
 use Silex\Provider\MonologServiceProvider;
 use Silex\Provider\WebProfilerServiceProvider;
 
-require_once __DIR__.'/controllers.php';
-require_once __DIR__.'/twig_extensions.php';
-
 $app = new Application();
 
 $app->register(new RoutingServiceProvider());
@@ -49,9 +46,9 @@ if (isset($app['config']['debug']) && $app['config']['debug'] == true) {
 }
 
 // Mount the Base Controllers
-$app->mount('/', new BaseControllers());
+$app->mount('/', new Cheatsheet\Controllers());
 
 // Create the Twig extensions
-$app['twig']->addExtension(new TwigExtension($app));
+$app['twig']->addExtension(new Cheatsheet\TwigExtension($app));
 
 return $app;

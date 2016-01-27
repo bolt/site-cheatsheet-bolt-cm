@@ -1,16 +1,20 @@
 <?php
 
+namespace Cheatsheet;
+
 use Silex\Api\ControllerProviderInterface;
+use Silex\Application;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\Yaml\Parser;
 
-class BaseControllers implements ControllerProviderInterface
+class Controllers implements ControllerProviderInterface
 {
 
-    public function connect(Silex\Application $app)
+    public function connect(Application $app)
     {
         /** @var $ctr \Silex\ControllerCollection */
         $ctr = $app['controllers_factory'];
@@ -24,10 +28,10 @@ class BaseControllers implements ControllerProviderInterface
 
     }
 
-    public function home(Silex\Application $app)
+    public function home(Application $app)
     {
-        $yaml = new Symfony\Component\Yaml\Parser();
-        $cheatsheet = $yaml->parse(file_get_contents(__DIR__ . '/cheatsheet.yml'));
+        $yaml = new Parser();
+        $cheatsheet = $yaml->parse(file_get_contents(__DIR__ . '/../app/cheatsheet.yml'));
 
         return $app['twig']->render('index.twig', ['cheatsheet' => $cheatsheet]);
     }
@@ -35,7 +39,7 @@ class BaseControllers implements ControllerProviderInterface
     /**
      * Middleware function to do some tasks that should be done for all requests.
      */
-    public function before(Request $request, Silex\Application $app)
+    public function before(Request $request, Application $app)
     {
         $app['twig']->addGlobal('config', $app['config']);
     }

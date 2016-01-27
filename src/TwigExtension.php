@@ -1,6 +1,9 @@
 <?php
 
+namespace Cheatsheet;
+
 use Cocur\Slugify\Slugify;
+use Silex\Application;
 
 /**
  * The class for Bolt' Twig tags, functions and filters.
@@ -15,7 +18,7 @@ class TwigExtension extends \Twig_Extension
      * @param \Pimple            $handlers
      * @param boolean            $safe
      */
-    public function __construct(Silex\Application $app)
+    public function __construct(Application $app)
     {
         $this->app      = $app;
         // $this->handlers = $handlers;
