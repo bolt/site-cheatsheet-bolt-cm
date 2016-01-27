@@ -7,8 +7,8 @@
 <head>
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width" />
-	<title>{{ title }} - Bolt documentation </title>
-    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,400italic|Source+Code+Pro&subset=latin,latin-ext' rel='stylesheet' type='text/css'> 
+	<title>{{ config.title }} - Bolt documentation </title>
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,400italic|Source+Code+Pro&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="view/css/cheatsheet.css">
     <script src="view/js/cheatsheet.js"></script>
 	<!--[if lt IE 9]>
@@ -27,6 +27,7 @@
         })();
     </script>
 
+{#
 <!-- Piwik -->
 <script type="text/javascript">
   var _paq = _paq || [];
@@ -42,58 +43,35 @@
 </script>
 <noscript><p><img src="//stats.bolt.cm/piwik.php?idsite=1" style="border:0;" alt="" /></p></noscript>
 <!-- End Piwik Code -->
+#}
 
 </head>
 <body>
 
-<nav class="top-bar" data-topbar role="navigation">
-  <ul class="title-area">
-    <li class="name">
-      <h1>Bolt Cheatsheet <span> - for Bolt {{ version }}</span></h1>
-    </li>
-     <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-    <!--<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>-->
-  </ul>
-
-
-{# 
-  <section class="top-bar-section">
-    <ul class="right">
-      <li class="has-dropdown">
-        <a href="#">Topics</a>
-        <ul class="dropdown">
-            {% for block in cheatsheet %}
-            <li>
-            <a href="#{{block.title|slug}}">{{ block.title }}</a>
-            </li>
-            {% endfor %} 
-        </ul>
-      </li>
-    </ul>
-  </section>
-#} 
-
-
-
-  
-</nav>
+<div class="top-bar">
+  <div class="top-bar-left">
+    <span class="title-bar-title">
+        Bolt Cheatsheet <span> - for Bolt {{ config.version|default('unknown') }}</span>
+    </span>
+  </div>
+</div>
 
 <div class="row labelholder">
-{% for block in cheatsheet if block.title is not empty %}
+{% for block in cheatsheet if block.title %}
     <span class="secondary radius label">
         <a href="#{{block.title|slug}}">{{ block.shorttitle|default(block.title) }}</a>
     </span>
-{% endfor %} 
+{% endfor %}
 </div>
 
 <div class="row panels">
 
-    {% for block in cheatsheet %}
+    {% for block in cheatsheet|default([]) %}
         <div class="panel">
 
             {% if block.title %}
                 <header>
-                    {% set title = block.title|markdown|replace({'<p>': '', '</p>': ''}) %} 
+                    {% set title = block.title|markdown|replace({'<p>': '', '</p>': ''}) %}
                     <h2 id="{{ block.title|slug }}">
                         {{ loop.index -1 }}. {{ title|raw }}
                         <a href="#{{ block.title|slug}}" class="anchor">&para;</a>
@@ -122,7 +100,7 @@
             {# links #}
             {% if block.links %}
                 <p class='readmore'>
-                    Read more: 
+                    Read more:
                     {% for text, link in block.links %}
                         <a href='{{ link }}'>{{ text }}</a>
                         {%- if not loop.last %}, {% endif %}

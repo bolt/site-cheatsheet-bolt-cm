@@ -6,15 +6,23 @@
     "license": "MIT",
     "require": {
         "cocur/slugify" : "~1.0",
-        "erusev/parsedown-extra" : "~0.2",
-        "erusev/parsedown-extra": "dev-master",
-        "symfony/var-dumper" : "^2.7",
-        "symfony/yaml": "^2.7",
-        "twig/twig" : "^1.18"
+        "erusev/parsedown-extra": "~0.7",
+        "monolog/monolog": "~1.12",
+        "silex/silex": "~2.0@dev",
+        "silex/web-profiler": "~2.0@dev",
+        "symfony/yaml": "^3.0",
+        "symfony/var-dumper": "^3.0",
+        "symfony/web-profiler-bundle" : "^3.0",
+        "twig/twig": "~1.21"
     },
     "minimum-stability": "beta",
     "config": {
         "preferred-install": "dist"
+    },
+    "autoload" : {
+        "psr-4" : {
+            "Cheatsheet\\" : "src"
+        }
     },
     "prefer-stable": true
 }

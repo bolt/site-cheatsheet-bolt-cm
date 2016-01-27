@@ -1,54 +1,15 @@
 <?php
 
-require_once './vendor/autoload.php';
+if (!file_exists(__DIR__.'/app/config.yml')) {
+    echo "<p>The file <tt>app/config.yml</tt> doesn't exist. Copy <tt>config.yml.dist</tt> to <tt>config.yml</tt> and add the correct settings.</p>";
+    die();
+}
+if (!file_exists(__DIR__.'/vendor/autoload.php')) {
+    echo "<p>The file <tt>vendor/autoload.php</tt> doesn't exist. Make sure you've installed the Silex components with Composer. See the README.md file.</p>";
+    die();
+}
+require_once __DIR__.'/vendor/autoload.php';
 
-use Symfony\Component\Yaml\Parser;
-use Cocur\Slugify\Slugify;
+$app = require_once __DIR__.'/app/bootstrap.php';
 
-$version = "2.2.16";
-
-$yaml = new Parser();
-$cheatsheet = $yaml->parse(file_get_contents('cheatsheet.yml'));
-
-$loader = new Twig_Loader_Filesystem('./view');
-$twig = new Twig_Environment($loader, array(
-  'cache' => './cache',
-));
-
-// Add Dumper function to twig.
-$dumper = new Twig_SimpleFunction(
-    'dump',
-    function ($var) { return dump($var); },
-    array('is_safe' => array('html')
-));
-$twig->addFunction($dumper);
-
-
-// Add markdown to twig.
-$markdown = new Twig_SimpleFilter(
-    'markdown',
-    function ($content) { return \ParsedownExtra::instance()->text($content); },
-    array('is_safe' => array('html')
-));
-$twig->addFilter($markdown);
-
-// Add slug filter to twig.
-$slug = new Twig_SimpleFilter(
-    'slug',
-    function ($name) {
-        $s = new Slugify();
-        return $s->slugify($name);
-    },
-    array('is_safe' => array('html')
-));
-$twig->addFilter($slug);
-
-
-echo $twig->render('index.twig', array(
-    'title' => "Bolt Cheatsheet",
-    'cheatsheet' => $cheatsheet,
-    'version' => $version
-));
-
-
-
+$app->run();
