@@ -1,6 +1,6 @@
 <?php
 
-namespace Cheatsheet;
+namespace Bolt\Cheatsheet;
 
 use Cocur\Slugify\Slugify;
 use Silex\Application;
