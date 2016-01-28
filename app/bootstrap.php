@@ -46,9 +46,9 @@ if (isset($app['config']['debug']) && $app['config']['debug'] == true) {
 }
 
 // Mount the Base Controllers
-$app->mount('/', new Cheatsheet\Controllers());
+$app->mount('/', new Bolt\Cheatsheet\Controllers());
 
 // Create the Twig extensions
-$app['twig']->addExtension(new Cheatsheet\TwigExtension($app));
+$app['twig']->addExtension(new Bolt\Cheatsheet\TwigExtension($app));
 
 return $app;

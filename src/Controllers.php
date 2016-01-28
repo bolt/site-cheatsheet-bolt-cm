@@ -1,6 +1,6 @@
 <?php
 
-namespace Cheatsheet;
+namespace Bolt\Cheatsheet;
 
 use Silex\Api\ControllerProviderInterface;
 use Silex\Application;
