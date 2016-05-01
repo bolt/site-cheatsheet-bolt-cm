@@ -1,4 +1,4 @@
 Cheatsheet
 ==========
 
-A bolt cheatsheet
+Deprecated! Integrated into the documentation: https://github.com/bolt/docs
